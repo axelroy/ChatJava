@@ -1,0 +1,26 @@
+
+package ch.hearc.cours.kitbase.equations;
+
+public class UseLineaire
+	{
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+		double[] tabCoefficient = Lineaire.saisir();
+		double x = Lineaire.solve(tabCoefficient);
+		Lineaire.print(tabCoefficient, x);
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	}

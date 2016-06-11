@@ -6,6 +6,8 @@ import java.awt.event.ComponentEvent;
 
 import javax.swing.JSplitPane;
 
+import ch.hearc.cours.projet.chatrmi.JPanelVideo;
+
 public class JCustomSplitPane extends JSplitPane
 	{
 

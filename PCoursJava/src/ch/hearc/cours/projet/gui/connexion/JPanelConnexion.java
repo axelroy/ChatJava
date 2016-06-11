@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
+import ch.hearc.cours.projet.chatrmi.ChatPreferences;
 import ch.hearc.cours.projet.chatrmi.PcChat;
 
 public class JPanelConnexion extends JPanel
@@ -52,10 +53,12 @@ public class JPanelConnexion extends JPanel
 	private void geometry()
 		{
 		// JComponent : Instanciation
+		userField = new JTextField(ChatPreferences.getUserName());
 		ipField = new JTextField(ChatPreferences.getIp());
 		portField = new JTextField(Integer.toString(ChatPreferences.getPort()));
 		ipLabel = new JLabel("Adresse IP : ");
 		portLabel = new JLabel("Port : ");
+		userLabel = new JLabel("User : ");
 		buttonValidate = new JButton("Valider");
 		// Layout : Specification
 			{
@@ -67,6 +70,8 @@ public class JPanelConnexion extends JPanel
 			}
 
 		// JComponent : add
+		add(userLabel);
+		add(userField);
 		add(ipLabel);
 		add(ipField);
 		add(portLabel);
@@ -84,6 +89,7 @@ public class JPanelConnexion extends JPanel
 				{
 				ChatPreferences.setIp(ipField.getText());
 				ChatPreferences.setPort(Integer.parseInt(portField.getText()));
+				ChatPreferences.setUserName(userField.getText());
 				ChatPreferences.save();
 
 				PcChat pcChat = PcChat.getInstance();
@@ -99,6 +105,7 @@ public class JPanelConnexion extends JPanel
 		{
 		ipField.setPreferredSize(new Dimension(150, 20));
 		portField.setPreferredSize(new Dimension(150, 20));
+		userField.setPreferredSize(new Dimension(150, 20));
 		}
 
 	/*------------------------------------------------------------------*\
@@ -108,8 +115,10 @@ public class JPanelConnexion extends JPanel
 	// Tools
 	private JTextField ipField;
 	private JTextField portField;
+	private JTextField userField;
 	private JLabel ipLabel;
 	private JLabel portLabel;
+	private JLabel userLabel;
 	private JButton buttonValidate;
 	private JFrameConnexion topFrame;
 

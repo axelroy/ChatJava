@@ -5,7 +5,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 
-import ch.hearc.cours.projet.gui.connexion.ChatPreferences;
+import ch.hearc.cours.projet.gui.chat.JFrameChat;
 
 import com.bilat.tools.reseau.rmi.RmiTools;
 import com.bilat.tools.reseau.rmi.RmiURL;
@@ -23,7 +23,8 @@ public class PcChat implements Runnable
 		{
 		try
 			{
-			rmiUrl = new RmiURL(Id.idRmiTextAreaAxel, InetAddress.getByName(ChatPreferences.getIp()), ChatPreferences.getPort());
+			rmiUrl = new RmiURL(Id.idRmi1, InetAddress.getByName(ChatPreferences.getIp()), ChatPreferences.getPort());
+			System.err.println("[PcChat]: création du rmiurl");
 			}
 		catch (UnknownHostException e)
 			{
@@ -40,6 +41,7 @@ public class PcChat implements Runnable
 		{
 		serverSide();
 		clientSide();
+		jFrameChat = new JFrameChat();
 		}
 
 	public synchronized static PcChat getInstance()
@@ -79,7 +81,7 @@ public class PcChat implements Runnable
 			}
 		catch (RemoteException e)
 			{
-			System.err.println("[PcHorloge]: clientSide: erreur de connexion.");
+			System.err.println("[PcChat]: clientSide: erreur de connexion.");
 			// e.printStackTrace();
 			}
 		}
@@ -97,7 +99,7 @@ public class PcChat implements Runnable
 		{
 		try
 			{
-			jTextAreaCustom = new JTextAreaCustom(rmiUrl);
+			jTextAreaCustom = new JTextAreaCustom();
 
 			}
 		catch (RemoteException e)
@@ -122,4 +124,5 @@ public class PcChat implements Runnable
 	\*------------------------------*/
 
 	private static PcChat INSTANCE;
+	private JFrameChat jFrameChat;
 	}

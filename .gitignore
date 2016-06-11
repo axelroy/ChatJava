@@ -9,12 +9,6 @@ local.properties
 .settings/
 .loadpath
 .recommenders
-PCoursJava/.settings/
-PCoursJava/bin/
-PCoursJava/io
-PCoursJava/.classpath
-PCoursJava/.project
-PCoursJava/devoirs.txt
 
 # Eclipse Core
 .project

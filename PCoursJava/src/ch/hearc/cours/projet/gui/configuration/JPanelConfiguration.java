@@ -7,7 +7,7 @@ import java.awt.FlowLayout;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import ch.hearc.cours.projet.gui.connexion.ChatPreferences;
+import ch.hearc.cours.projet.chatrmi.ChatPreferences;
 
 public class JPanelConfiguration extends JPanel
 	{

@@ -10,8 +10,9 @@ public class Id
 	|*			  Static			*|
 	\*------------------------------*/
 
-	public static final String idRmiTextAreaSylvain = "SylvainRamseyerText";
-	public static final String idRmiTextAreaAxel = "AxelRoyText";
+	// TODO: remettre en Final quand les test sont terminer
+	public static String idRmi2 = "SylvainRamseyerText";
+	public static String idRmi1 = "AxelRoyText";
 
 
 	}

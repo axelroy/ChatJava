@@ -1,0 +1,6 @@
+#Position/Taille JFrameProperties
+#Wed May 11 12:01:46 CEST 2016
+w=1616
+py=-8
+px=-8
+h=876

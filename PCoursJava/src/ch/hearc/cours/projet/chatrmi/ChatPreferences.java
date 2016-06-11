@@ -1,5 +1,5 @@
 
-package ch.hearc.cours.projet.gui.connexion;
+package ch.hearc.cours.projet.chatrmi;
 
 import java.util.prefs.Preferences;
 
@@ -20,12 +20,14 @@ public class ChatPreferences
 		{
 		ip = PREFERENCES.get("ip", DEFAULT_IP);
 		port = PREFERENCES.getInt("port", DEFAULT_PORT);
+		user = PREFERENCES.get("user", DEFAULT_USER);
 		}
 
 	public static void save()
 		{
 		PREFERENCES.put("ip", ip);
 		PREFERENCES.putInt("port", port);
+		PREFERENCES.put("user", user);
 		}
 
 	/*------------------------------*\
@@ -42,6 +44,11 @@ public class ChatPreferences
 		ChatPreferences.port = port;
 		}
 
+	public static void setUserName(String user)
+		{
+		ChatPreferences.user = user;
+		}
+
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
@@ -54,6 +61,11 @@ public class ChatPreferences
 	public static int getPort()
 		{
 		return port;
+		}
+
+	public static String getUserName()
+		{
+		return user;
 		}
 
 	/*------------------------------------------------------------------*\
@@ -69,11 +81,14 @@ public class ChatPreferences
 	\*------------------------------*/
 	private static final Preferences PREFERENCES = Preferences.userNodeForPackage(JFramePreferrence.class);
 
-	public static String ip;
-	public static int port;
+	private static String ip;
+	private static int port;
+	private static String user;
 
 	// TODO: mettre l'adresse ip local via bilat rmitool
 	private static final String DEFAULT_IP = "127.0.0.1";
 	private static final int DEFAULT_PORT = 1099;
+	private static final String DEFAULT_USER = "user";
+
 
 	}

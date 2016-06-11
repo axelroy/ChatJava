@@ -60,10 +60,10 @@ public class JFrameConnexion extends JFrame
 	private void appearance()
 		{
 		setTitle("Connexion au chat");
-		setSize(550, 75);
+		setSize(700, 75);
 		setLocationRelativeTo(null); // frame centrer
 		setVisible(true); // last!
-		//setResizable(false);
+		setResizable(false);
 		}
 
 	/*------------------------------------------------------------------*\

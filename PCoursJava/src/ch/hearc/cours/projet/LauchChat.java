@@ -14,7 +14,6 @@ public class LauchChat
 		{
 		main();
 		}
-
 	public static void main()
 		{
 		JFrameConnexion frameConnexion = new JFrameConnexion();

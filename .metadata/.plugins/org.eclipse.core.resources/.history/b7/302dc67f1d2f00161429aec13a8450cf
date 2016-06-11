@@ -1,0 +1,31 @@
+
+package ch.hearc.cours.projet;
+
+import java.awt.Dimension;
+
+import ch.hearc.cours.projet.gui.connexion.JFrameConnexion;
+import ch.hearc.cours.projet.tools.Tools;
+
+public class LauchChat
+	{
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	// TODO:Peut être ne pas lancer la fenêtre de connexion si les propriétés système sont set
+	public static void main(String[] args)
+		{
+		main();
+		}
+	public static void main()
+		{
+		System.out.println(Tools.getScaledDimension(new Dimension(1280,720), new Dimension(600,600)));
+		JFrameConnexion frameConnexion = new JFrameConnexion();
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	}
+

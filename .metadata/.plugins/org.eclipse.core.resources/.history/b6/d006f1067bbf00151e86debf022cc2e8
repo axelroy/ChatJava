@@ -1,0 +1,54 @@
+
+package ch.hearc.cours.moo.heritage.formes;
+
+public class Rectangle extends Formes
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	public Rectangle(String nom, double w, double h)
+		{
+		super(nom);
+		this.w = w;
+		this.h = h;
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	@Override
+	public String toString()
+		{
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append(super.toString());
+		stringBuilder.append("\nwidth: ");
+		stringBuilder.append(w);
+		stringBuilder.append("\nheight: ");
+		stringBuilder.append(h);
+		return stringBuilder.toString();
+		}
+
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+
+	//Inputs
+	private double w;
+	private double h;
+
+	}

@@ -1,0 +1,11 @@
+
+package ch.hearc.cours.projet.chatrmi;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface TextArea_I extends Remote
+	{
+	public void addText(String text) throws RemoteException;
+	}
+

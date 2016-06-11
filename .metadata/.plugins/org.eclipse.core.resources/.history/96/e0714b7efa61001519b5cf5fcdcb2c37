@@ -1,0 +1,46 @@
+
+package ch.hearc.cours.kitbase.container;
+
+import java.util.Map;
+import java.util.TreeMap;
+
+public class UseMap
+	{
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+	
+	public static void main(String[] args)
+		{
+		main();
+		}
+		
+	public static void main()
+		{
+		int n = 10;
+		Map<String, Integer> mapNomTel = new TreeMap<String, Integer>();
+		peupler(mapNomTel, n);
+		print(mapNomTel);
+		}
+		
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+	
+	private static void print(Map<String, Integer> mapNomTel)
+		{
+		//TODO: Autres versions 
+		//V5
+			{
+			System.out.println(mapNomTel);
+			}
+		}
+		
+	private static void peupler(Map<String, Integer> mapNomTel, int n)
+		{
+		for(int i = 0; i < n; i++)
+			{
+			mapNomTel.put("toto" + i, i);
+			}
+		}
+	}

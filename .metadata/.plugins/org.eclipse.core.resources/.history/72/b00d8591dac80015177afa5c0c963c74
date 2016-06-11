@@ -1,0 +1,61 @@
+
+package ch.hearc.cours.moo.fibo;
+
+import java.math.BigInteger;
+
+import org.junit.Assert;
+
+public class Fibo implements Runnable
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	public Fibo(int n)
+		{
+		Assert.assertTrue(n >= 2);
+		this.n = n;
+		this.tabSuite = new BigInteger[n];
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	@Override
+	public void run()
+		{
+		tabSuite[0] = new BigInteger("0");
+		tabSuite[1] = new BigInteger("1");
+
+		for(int i = 2; i <= n; i++)
+			{
+			tabSuite[n] = tabSuite[n - 1].add(tabSuite[n - 2]);
+			}
+		}
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	public BigInteger[] getTabSuite()
+		{
+		return this.tabSuite;
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+
+	// Inputs
+	private int n;
+
+	// Outputs
+	private BigInteger[] tabSuite;
+
+	}

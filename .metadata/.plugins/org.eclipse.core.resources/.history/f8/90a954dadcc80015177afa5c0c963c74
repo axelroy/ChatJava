@@ -1,0 +1,36 @@
+
+package ch.hearc.cours.moo.fibo;
+
+
+/**
+ * -Dn=10
+ */
+public class UseFibo
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+		int n = Integer.valueOf(System.getProperty("n"));
+
+		Fibo fibo = new Fibo(n);
+		fibo.run();
+
+		System.out.println(fibo);
+
+		System.out.println("Note : Long.MAX_VALUE = "+Long.MAX_VALUE);
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	}

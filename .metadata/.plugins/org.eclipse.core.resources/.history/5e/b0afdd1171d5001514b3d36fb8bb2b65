@@ -1,0 +1,85 @@
+
+package ch.hearc.cours.gui.jcomponent.hello;
+
+import java.awt.Color;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class JFrameHello extends JFrame
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	public JFrameHello()
+		{
+		geometrie();
+		controle();
+		apparence();
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	private void geometrie()
+		{
+		bouton = new JButton("Coucou");
+
+		FlowLayout layout = new FlowLayout(FlowLayout.RIGHT);
+		this.getContentPane().setLayout(layout);
+
+		this.getContentPane().add(bouton);
+
+		}
+
+	private void controle()
+		{
+		// TODO Auto-generated method stub
+
+		}
+
+	private void apparence()
+		{
+		//bouton
+			{
+			bouton.setBackground(Color.CYAN);
+			bouton.setForeground(new Color(255,255,255));
+			//bouton.setOpaque(false);
+			}
+		//JFrame
+			{
+			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			this.setResizable(false);
+			//this.setUndecorated(true);
+			this.getContentPane().setBackground(Color.blue);
+			this.setTitle("Hello");
+			this.setLocation(0, 0);
+			this.setSize(300, 200);
+			this.setVisible(true); // dernière chose du constructeur
+			}
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+
+	//tools
+	private JButton bouton;
+
+	}

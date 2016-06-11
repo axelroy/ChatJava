@@ -1,0 +1,48 @@
+
+package ch.hearc.cours.rmi.pcsecret;
+
+public class MessageSecret
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	public MessageSecret(String message)
+		{
+		this.message = message;
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	@Override
+	public String toString()
+		{
+		StringBuilder builder = new StringBuilder();
+		builder.append("MessageSecret [message=");
+		builder.append(this.message);
+		builder.append("]");
+		return builder.toString();
+		}
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	public String getMessage()
+		{
+		return this.message;
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+	//input/output
+	private String message;
+	}

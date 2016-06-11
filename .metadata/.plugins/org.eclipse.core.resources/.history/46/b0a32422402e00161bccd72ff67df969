@@ -1,0 +1,19 @@
+
+package ch.hearc.cours.projet.chatrmi;
+
+
+
+public class Id
+	{
+
+	/*------------------------------*\
+	|*			  Static			*|
+	\*------------------------------*/
+
+	// TODO: remettre en Final quand les test sont terminer
+	public static String idRmiTextAreaSylvain = "SylvainRamseyerText";
+	public static String idRmiTextAreaAxel = "AxelRoyText";
+
+
+	}
+

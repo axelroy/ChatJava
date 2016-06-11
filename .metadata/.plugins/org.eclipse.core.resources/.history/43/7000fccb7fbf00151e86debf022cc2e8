@@ -1,0 +1,63 @@
+
+package ch.hearc.cours.moo.heritage.formes;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class Dessin implements Iterable<Formes>
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	public Dessin(String nom)
+		{
+		this.nom = nom;
+		listFormes = new ArrayList<Formes>();
+		}
+
+	public Dessin(Dessin source)
+		{
+		this(source.nom);
+
+		for(Formes f:source)
+			{
+			this.listFormes.add(f.cloneOf());
+			}
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	@Override
+	public Iterator<Formes> iterator()
+		{
+		return listFormes.iterator();
+		}
+
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+
+	//Inputs
+	private String nom;
+
+	//Tools
+	private List<Formes> listFormes;
+
+	}

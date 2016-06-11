@@ -1,0 +1,44 @@
+
+package ch.hearc.cours.projet.chatrmi;
+
+import java.rmi.RemoteException;
+
+import javax.swing.JTextArea;
+
+import ch.hearc.cours.projet.gui.connexion.ChatPreferences;
+
+import com.bilat.tools.reseau.rmi.RmiTools;
+import com.bilat.tools.reseau.rmi.RmiURL;
+
+public class JTextAreaCustom extends JTextArea implements TextArea_I
+	{
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	public JTextAreaCustom() throws RemoteException
+		{
+		super();
+		System.out.println("[JTextAreaCustom]");
+		RmiURL rmiUrl = new RmiURL(Id.idRmiTextAreaAxel, ChatPreferences.getPort());
+		RmiTools.shareObject(this, rmiUrl);
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	@Override
+	public void addText(String text)
+		{
+		append(text);
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+	}

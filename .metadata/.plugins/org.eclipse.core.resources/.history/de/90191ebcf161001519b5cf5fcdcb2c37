@@ -1,0 +1,42 @@
+
+package ch.hearc.cours.kitbase.container;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class UseList
+	{
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+		int n = 10;
+		//List<Integer> listValeurs = new ArrayList<Integer>(n);	// Optimiser la taille en mettant N (possible de faire plus grand)
+		List<Integer> listValeurs = new LinkedList<Integer>();
+		peupler(listValeurs);
+		print(listValeurs);
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	private static void print(List<Integer> listValeurs)
+		{
+		// TODO Auto-generated method stub
+
+		}
+
+	private static void peupler(List<Integer> listValeurs)
+		{
+		// TODO Auto-generated method stub
+
+		}
+	}

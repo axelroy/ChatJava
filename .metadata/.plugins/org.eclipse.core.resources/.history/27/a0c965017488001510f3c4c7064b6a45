@@ -1,0 +1,61 @@
+
+package ch.hearc.cours.moo.tri.scia;
+
+import java.util.Arrays;
+
+public class UseMaison
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+		use1();
+		useFlexible();
+		}
+
+	private static void use1()
+		{
+		int n = 3;
+		Maison[] tabMaison = createTabMaion(n);
+		sort(tabMaison);
+		System.out.println(Arrays.toString(tabMaison));
+		}
+
+	private static void useFlexible()
+		{
+		int n = 3;
+		Maison[] tabMaison = createTabMaion(n);
+		Arrays.sort(tabMaison, new MaisonComparatorSurface()); // Tri sur place
+		System.out.println(Arrays.toString(tabMaison));
+		Arrays.sort(tabMaison, new MaisonComparatorPrix());
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	private static Maison[] createTabMaion(int n)
+		{
+		Maison[] tab = new Maison[n];
+		for(int i = 0; i < n - 1; i++)
+			{
+			tab[i] = new Maison(i * Math.PI, i);
+			}
+		tab[n - 1] = new Maison(10000, 0);
+		return tab;
+		}
+
+	private static void sort(Maison[] tabMaison)
+		{
+		Arrays.sort(tabMaison); // Tri sur place
+		}
+
+	}

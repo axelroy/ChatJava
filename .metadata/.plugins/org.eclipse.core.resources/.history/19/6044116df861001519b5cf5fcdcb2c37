@@ -1,0 +1,41 @@
+
+package ch.hearc.cours.kitbase.container;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class UseSet
+	{
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+		int n = 5;
+		Set<Integer> setValeurs = new HashSet<Integer>(n);
+		peupler(setValeurs, n);
+		print(setValeurs);
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	private static void print(Set<Integer> setValeurs)
+		{
+		// TODO Auto-generated method stub
+
+		}
+
+	private static void peupler(Set<Integer> setValeurs, int n)
+		{
+		// TODO Auto-generated method stub
+
+		}
+	}

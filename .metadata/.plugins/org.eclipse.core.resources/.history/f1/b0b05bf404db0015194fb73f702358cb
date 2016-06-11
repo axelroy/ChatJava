@@ -1,0 +1,156 @@
+---------------
+1 -> 2
+---------------
+2 -> 3:
+
+Equation quadratique: comprenant 2 class (Quadratique et UseQuadratique)
+nombres réels
+methodes: solve, print, saisir, discriminant
+ax2+bx+c=0
+refuser le cas: a=0 et b=0
+Math.sqrt /(racine carrée)
+---------------
+
+---------------
+3 -> 4:
+
+combien de fois en moyenne doit-on lancer un dé pour obtenir au moins une fois chacune des six faces?
+
+indication: Math.random? (lire doc)
+code suffisement bien écrit pour adapter le problème
+
+(arrondi supérieur) Math.ceil()
+
+--------------
+4 -> 5:
+
+Vérifier l'équiprobabilité de notre générateur de nombre aléatoire.
+
+indication: faire un histogramme
+contrainte: utiliser jexcelapi
+
+Dessiner l'histogramme dans excel
+
+--------------
+
+5 -> 6:
+
+- Avoir une machine virtuelle vierge Windows 
+  & une machine virtuelle vierge Linux (attention au 32/64 bits)
+ 
+- Avoir un folder partagé ou Dropbox pour transferer les fichiers 
+  de la machine réelle à la machine virtuelle
+  
+- Resolution d'une équation quadratique sous forme objet. 
+  Contrainte: commencer par les attributs
+  
+--------------
+
+6 -> 7:
+
+Faire une boucle :
+
+for(int i=1; i <= n; i++)
+{
+	worki();
+}
+
+Sans employer de type simple (en employant les wrappers)
+
+Test JUnit pour prouver que le constructeur de copie fonctionne bien.
+Protocole :
+
+-Vérifier qu'il y a bel et bien une copie
+-Prendre l'objet A et le copier
+-Modifier l'original et vérifier que la copie n'est pas modifiée
+
+Appliquer le protocole sur la classe Roue
+
+Avoir une machine virtuelle Ubuntu 14.04
+
+--------------
+
+7 -> 8:
+
+faire une classe Chrono
+Methods:
+start()
+stop()
+toString()
+
+contrainte
+le constructeur start le chrono
+le toString arrete le chrono
+la methode start reset le compteur
+sans thread (sychronized)
+
+Outil
+System ou runtime current|time|ms
+
+faire une methode isEquals et cloneOf pour Garage
+
+-------------
+9 -> 10
+
+Ecrire un test junit qui permet de tester la classe Complex.
+Tirer n nombres complexes répartit uniformément autours d'un cercle de centre zc et de rayon r.
+zc, n et r seront facilement modifiable.
+
+zc = gravite(somme(zn)/n)
+
+--------------
+10 -> 11
+
+Deux implémentations de la classe Experience du package moo.de:
+	1. Naïve, instanciation d'un objet à chaque lancé
+	2. Pro, utilisation d'un tableau private final
+Chronométrer les 2 solutions avec la classe Chrono.
+Comparer avec une classe Moyenneur qui utilise la classe Experience
+
+--------------
+11 -> 12
+
+Lire le corrigé sur le Dé parallèle qui se trouve dans le package Thread
+Implémenter et tester la classe HmsiTimes
+
+--------------
+12 -> 13
+Exercie 1
+Ecrire un code en java qui affiche les elements de la suite de Fibonacci en utilisant
+la classe BigInteger avec un affichage final sur deux colonnes :
+1ère colonne : nombre de digit de l'élément
+2ème colonne : l'élément
+itératif ?
+récursif ?
+
+PS: voir TE
+
+Exercice 2
+Test junit sur la méthode isEquals de la classe Animals
+
+--------------
+13 -> 14
+
+Exercice 1
+Faire une trilogie UseJFrameXXX, JPanelXXX, JFrameXXX
+Avec XXX = Cercle.
+Les inputs du JFrame sont : N, rayon.
+Envoyer à JPanel la référence du JFrame.
+Il faut placer N boutons sur un cercle de rayon r 
+répartis uniformément
+Indications : Non-resizable, Sans Layout, 
+utiliser la classe Complex
+Si on clique sur un bouton : affiche la position du bouton
+dans le titre de la JFrame.
+
+--------------
+14 -> 15
+
+Faire la trilogie classique XXX pour une salle conférence (Java 2d)
+On souhaite déssiner une salle de conférence avec des tables réparties 
+uniformément autour d'un cercle. On choisira en entrée le nombre de tables.
+Contraintes: utiliser un seul et unique rectangle 
+Indic 	=> Bouger le repère
+		=> Créer le rectangle avec le repère centré à l'origine
+		
+

@@ -1,0 +1,56 @@
+
+package ch.hearc.cours.kitbase.container;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class UseList
+	{
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+		int n = 10;
+		//List<Integer> listValeurs = new ArrayList<Integer>(n);	// Optimiser la taille en mettant N (possible de faire plus grand)
+		List<Integer> listValeurs = new LinkedList<Integer>();
+		peupler(listValeurs);
+		print(listValeurs);
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	private static void print(List<Integer> listValeurs)
+		{
+		//V1 : Musée des horreurs!!
+			{
+			int n = listValeurs.size();
+			for(int i = 0; i < n; i++)
+				{
+				System.out.println(listValeurs.get(i));
+				}
+			}
+		//V2
+			{
+
+			}
+		}
+
+	private static void peupler(List<Integer> listValeurs)
+		{
+		int n = listValeurs.size();
+		for(int i = 0; i < n; i++)
+			{
+			listValeurs.add(i); // Syntaxe raccourcie
+			//listValeurs.add(new Integer(i));
+			}
+		}
+	}

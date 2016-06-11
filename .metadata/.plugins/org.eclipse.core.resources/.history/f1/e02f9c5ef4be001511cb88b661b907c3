@@ -1,0 +1,22 @@
+
+package ch.hearc.cours.moo.fibo;
+
+public class UseFibonacci
+	{
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+				Fibonacci fibo = new Fibonacci();
+				for(int i = 0; i <= 100; i++)
+					{
+					System.out.println(fibo.getNext());
+					}
+
+		}
+
+	}

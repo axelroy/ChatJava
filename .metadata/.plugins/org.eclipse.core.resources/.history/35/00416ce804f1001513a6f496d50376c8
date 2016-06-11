@@ -1,0 +1,60 @@
+
+package ch.hearc.cours.gui.jcomponent.exploration.splitpane;
+
+import javax.swing.JFrame;
+
+public class JFrameSplitPane extends JFrame
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	public JFrameSplitPane()
+		{
+		geometry();
+		control();
+		appearance();
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	private void geometry()
+		{
+		panelInclusion = new JPanelSplitPane();
+		add(panelInclusion);
+		}
+
+	private void control()
+		{
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		}
+
+	private void appearance()
+		{
+		setSize(600, 400);
+		setLocationRelativeTo(null); // frame centrer
+		setVisible(true); // last!
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+
+	// Tools
+	private JPanelSplitPane panelInclusion;
+	}

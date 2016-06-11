@@ -1,0 +1,31 @@
+
+package ch.hearc.cours.moo.heritage.animal;
+
+import ch.hearc.cours.moo.heritage.animal.mammifere.felin.concret.Chats;
+import ch.hearc.cours.moo.heritage.animal.oiseaux.concret.Canards;
+
+public class UseZoo
+	{
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+		Zoo zoo = new Zoo("Bale");
+		zoo.add(new Chats("Mistigri"));
+		zoo.add(new Canards("Donald",1000));
+		System.out.println(zoo);
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	}
+

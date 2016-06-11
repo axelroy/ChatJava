@@ -1,0 +1,27 @@
+
+package ch.hearc.cours.kitbase.container.de;
+
+public class UseStatistiques
+	{
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+		int nbFaces=6;
+		int nbExp=1000;
+		int moyenne = De.moyenneur(nbFaces,nbExp);
+		System.out.println("moyenne : " + moyenne);
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	}

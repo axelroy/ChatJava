@@ -1,0 +1,10 @@
+
+package ch.hearc.cours.projet.chatrmi;
+
+
+
+public interface PanelVideo_I
+	{
+	
+	}
+

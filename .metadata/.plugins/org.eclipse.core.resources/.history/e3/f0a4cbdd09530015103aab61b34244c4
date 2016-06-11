@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# see run.cmd documentation
+#
+
+# echo ""
+
+java -cp .:./*:./ext/* ch.hearc.cours.kitbase.Hellos 
+
+#echo""

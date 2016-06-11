@@ -1,0 +1,15 @@
+
+package ch.hearc.cours.rmi.pcb;
+
+import java.rmi.Remote;
+import java.util.Date;
+
+public interface Horloge_I extends Remote
+	{
+	
+	
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+	public Date getTime();
+	}

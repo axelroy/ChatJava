@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract method &apos;private void updatePolar(double re, double im)&apos; from &apos;ch.hearc.cours.moo.doublerepresentation.Complex.Complex()&apos; to &apos;ch.hearc.cours.moo.doublerepresentation.Complex&apos;&#x0D;&#x0A;- Original project: &apos;PCoursJava&apos;&#x0D;&#x0A;- Method name: &apos;updatePolar&apos;&#x0D;&#x0A;- Destination type: &apos;ch.hearc.cours.moo.doublerepresentation.Complex&apos;&#x0D;&#x0A;- Declared visibility: &apos;private&apos;" comments="false" description="Extract method &apos;updatePolar&apos;" destination="0" exceptions="false" flags="786434" id="org.eclipse.jdt.ui.extract.method" input="/src&lt;ch.hearc.cours.moo.doublerepresentation{Complex.java" name="updatePolar" replace="false" selection="396 70" stamp="1448459976954" version="1.0" visibility="2"/>
+</session>

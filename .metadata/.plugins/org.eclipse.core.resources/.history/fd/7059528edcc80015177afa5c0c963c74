@@ -1,0 +1,34 @@
+
+package ch.hearc.cours.moo.fibo;
+
+
+/**
+ * -Dn=10
+ */
+public class UseFibo
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+		int n = Integer.valueOf(System.getProperty("n"));
+
+		Fibo fibo = new Fibo(5000);
+		fibo.run();
+
+		System.out.println(fibo);
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	}

@@ -1,0 +1,29 @@
+
+package ch.hearc.cours.kitbase.container;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class UseList
+	{
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+	
+	public static void main(String[] args)
+		{
+		main();
+		}
+		
+	public static void main()
+		{
+		int n = 10;
+		List<Integer> listValeurs = new ArrayList<Integer>(n);
+		
+		}
+		
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+	
+	}

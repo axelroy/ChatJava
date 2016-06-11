@@ -1,0 +1,51 @@
+package ch.hearc.cours.io.file.object.bin;
+
+import static org.junit.Assert.assertTrue;
+
+import java.io.IOException;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import ch.hearc.cours.io.file.data.Tools;
+
+public class FileObjectTest
+{
+/*------------------------------------------------------------------*\
+	 |*							Constructeurs							*|
+	 \*------------------------------------------------------------------*/
+
+@Before public void before()
+	{
+	// rien
+	}
+
+@After public void after()
+	{
+	// rien
+	}
+
+/*------------------------------------------------------------------*\
+	 |*							Methodes Public							*|
+	 \*-----------------------------------------------------------------*/
+
+@Test public void testCloneParSerialisation() throws IOException, ClassNotFoundException
+	{
+	int n = 10;
+	String fileName = "equipe.bin";
+	Equipe equipeSrc = EquipeTools.create(n);
+	EquipeTools.write(equipeSrc,fileName);
+	Equipe equipeClone = EquipeTools.read(fileName);
+	System.out.println(equipeSrc);
+	System.out.println(equipeClone);
+	Tools.delete(fileName);
+
+	assertTrue(equipeSrc.isEquals(equipeClone));
+	}
+
+/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+}

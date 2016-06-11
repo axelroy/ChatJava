@@ -1,0 +1,57 @@
+
+package ch.hearc.cours.moo.generic;
+
+public class Chrono
+	{
+	
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+	public Chrono()
+		{
+		start();
+		}
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+	
+	@Override
+	public String toString()
+		{
+		stop();
+		StringBuilder builder = new StringBuilder();
+		builder.append(arret - depart);
+		return builder.toString();
+		}
+		
+	public void start()
+		{
+		depart = System.currentTimeMillis();
+		}
+		
+	public void stop()
+		{
+		arret = System.currentTimeMillis();
+		}
+		
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+	
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+	
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+	
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+	
+	//Tools
+	private long depart;
+	private long arret;
+	
+	}

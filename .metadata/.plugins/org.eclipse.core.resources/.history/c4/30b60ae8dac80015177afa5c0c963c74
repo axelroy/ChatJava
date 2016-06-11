@@ -1,0 +1,34 @@
+
+package ch.hearc.cours.moo.fibo;
+
+import java.math.BigInteger;
+
+public class UseFibo
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+		int n=10;
+		Fibo fibo = new Fibo(n);
+		fibo.run();
+
+		for(BigInteger valeur:fibo)
+			{
+			System.out.println(valeur);
+			}
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	}

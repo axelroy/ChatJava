@@ -1,0 +1,46 @@
+
+package ch.hearc.cours.kitbase.container;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class UseBiList
+	{
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+	
+	public static void main(String[] args)
+		{
+		main();
+		}
+		
+	public static void main()
+		{
+		int n = 4;
+		List<Integer> listX = new ArrayList<Integer>(n);
+		List<Integer> listY = new ArrayList<Integer>(n);
+		peupler(listX, listY, n);
+		print(listX, listY);
+		}
+		
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+	
+	private static void print(List<Integer> listX, List<Integer> listY)
+		{
+		// TODO Auto-generated method stub
+		
+		}
+		
+	private static void peupler(List<Integer> listX, List<Integer> listY, int n)
+		{
+		for(int i = 0; i < n; i++)
+			{
+			listX.add(i);
+			listY.add(i * 10);
+			}
+		}
+		
+	}

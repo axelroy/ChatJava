@@ -1,0 +1,12 @@
+---------------
+1 -> 2
+---------------
+2 -> 3:
+
+Equation quadratique: comprenant 2 class (Quadratique et UseQuadratique)
+nombres réels
+methodes: solve, print, saisir, discriminant
+ax2+bx+c=0
+refuser le cas: a=0 et b=0
+Math.sqrt /(racine carrée)
+---------------

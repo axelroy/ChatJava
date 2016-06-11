@@ -1,0 +1,63 @@
+
+package ch.hearc.cours.io.file.object.bin;
+
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class SerializerTools
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+
+	public static byte[] serializer(Serializable serializable) throws IOException
+		{
+		ByteArrayOutputStream baos= new ByteArrayOutputStream();
+		BufferedOutputStream bos = new BufferedOutputStream(baos);
+		ObjectOutputStream oos= new ObjectOutputStream(bos);
+		
+		oos.writeObject(serializable);
+		
+		oos.close();
+		bos.close();
+		baos.close();
+		
+		// flux fermé mais données toujours existante
+		return baos.toByteArray();
+		}
+
+	public static Serializable deSerializer(byte[] tabBytes)
+		{
+
+		}
+
+	public static Serializable clone(Serializable serializable)
+		{
+		return deSerializer(serializer(serializable));
+		}
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+	}

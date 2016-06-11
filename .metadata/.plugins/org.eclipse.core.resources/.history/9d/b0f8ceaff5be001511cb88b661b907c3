@@ -1,0 +1,34 @@
+
+package ch.hearc.cours.moo.fibo;
+
+import java.math.BigInteger;
+import java.util.List;
+
+public class UseFibonacci
+	{
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+		int n = 10;
+		Fibonacci fibo = new Fibonacci();
+		System.out.println("liste 1");
+		for(int i = 0; i <= n; i++)
+			{
+			System.out.println(i+1+"\t"+fibo.getNext());
+			}
+		fibo.reset();
+		System.out.println("liste 2");
+		List<BigInteger> list = fibo.getRecursiveList(n);
+		int i=0;
+		for(BigInteger bigInteger:list)
+			{
+			i++;
+			System.out.println(i+1+"\t"+bigInteger);
+			}
+		}
+	}

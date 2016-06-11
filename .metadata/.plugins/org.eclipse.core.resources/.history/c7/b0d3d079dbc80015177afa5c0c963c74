@@ -1,0 +1,43 @@
+
+package ch.hearc.cours.moo.fibo;
+
+import java.math.BigInteger;
+
+public class UseFibo
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+		int n=500;
+		Fibo fibo = new Fibo(n);
+		fibo.run();
+
+		int  i=0;
+		for(BigInteger valeur:fibo)
+			{
+			int nbDigit=valeur.toString().length();
+			System.out.println(i+TABULATION+nbDigit+TABULATION+valeur);
+			i++;
+			}
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------*\
+	|*			  Static			*|
+	\*------------------------------*/
+
+	private static final String TABULATION="\t";
+
+	}

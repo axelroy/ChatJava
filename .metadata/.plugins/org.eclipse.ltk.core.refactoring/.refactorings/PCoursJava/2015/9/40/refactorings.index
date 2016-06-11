@@ -1,0 +1,6 @@
+1443608277939	Extract method 'discriminant'
+1443612418169	Rename local variable 'x'
+1443612850314	Rename local variable 'disc'
+1443612949583	Rename local variable 'result'
+1443613501852	Extract method 'solveQuadratique'
+1443613546928	Extract method 'solveLineaire'

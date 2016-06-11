@@ -1,0 +1,75 @@
+
+package ch.hearc.cours.moo.garage;
+
+public class Roue
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	public Roue(StringBuilder marque, int taille)
+		{
+		this.marque = marque;
+		this.taille = taille;
+		}
+
+	public Roue(Roue source)
+		{
+		this(new StringBuilder(source.marque), source.taille);
+		}
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	@Override
+	public String toString()
+		{
+		StringBuilder builder = new StringBuilder();
+		builder.append("Roue [marque=");
+		builder.append(this.marque);
+		builder.append(", taille=");
+		builder.append(this.taille);
+		builder.append("]");
+		return builder.toString();
+		}
+
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+
+	public void setMarque(StringBuilder marque)
+		{
+		this.marque = marque;
+		}
+
+	public void setTaille(int taille)
+		{
+		this.taille = taille;
+		}
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+	public StringBuilder getMarque()
+		{
+		return this.marque;
+		}
+
+	public int getTaille()
+		{
+		return this.taille;
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+
+	//Input
+	private StringBuilder marque;
+	private int taille;
+	}

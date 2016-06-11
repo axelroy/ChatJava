@@ -1,0 +1,15 @@
+1458118662194	Extract method 'create'
+1458119225300	Rename method 'create'
+1458119666801	Rename package 'ch.hearc.cours.gui.images'
+1458119712577	Copy package
+1458121002834	Rename package 'ch.hearc.cours.gui.java2d.conference'
+1458121023033	Rename package 'ch.hearc.cours.gui.java2d.polygone'
+1458131135581	Extract method 'inverserEtatBouton'
+1458131755718	Rename method 'animate'
+1458134709587	Move compilation units
+1458136873827	Move compilation units
+1458136896526	Copy compilation units
+1458136919163	Rename type 'JFrameHSB'
+1458136928450	Rename type 'JPanelHSB'
+1458136963010	Rename type 'UseJFrameHSB'
+1458138009583	Extract method 'animate'

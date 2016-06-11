@@ -1,0 +1,61 @@
+
+package ch.hearc.cours.moo.tri.drill;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import ch.hearc.cours.kitbase.tools.RandomTools;
+
+public class UseBanane
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+		useSimple();
+		}
+
+	private static void useSimple()
+		{
+		int n=5;
+		List<Banane> listBanane = createBanane(n);
+		System.out.println(listBanane);
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	private static List<Banane> createBanane(int n)
+		{
+		List<Banane> listeBanane = new ArrayList<Banane>(n);
+
+		for(int i = 0; i < n; i++)
+			{
+			Banane banane = createAleatoire();
+			listeBanane.add(banane);
+			}
+
+		return listeBanane;
+		}
+
+	private static Banane createAleatoire()
+		{
+		int poids = aleatoire(1000, 2000);
+		int prix = aleatoire(10, 20);
+		return new Banane(poids, prix);
+		}
+
+	private static int aleatoire(int min, int max)
+		{
+		return RandomTools.randomMinMax(min, max);
+		}
+	}

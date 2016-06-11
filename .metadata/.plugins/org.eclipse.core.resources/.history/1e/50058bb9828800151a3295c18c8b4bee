@@ -1,0 +1,35 @@
+
+package ch.hearc.cours.moo.generic;
+
+public class UseChrono
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+		Chrono chronometre = new Chrono();
+		try
+			{
+			Thread.sleep(2500); // unité temporelle : ms
+			}
+		catch (InterruptedException ex)
+			{
+			Thread.currentThread().interrupt();
+			}
+		chronometre.stop();
+		System.out.println("Temps ecoule = " + chronometre.toString() + "ms");
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	}

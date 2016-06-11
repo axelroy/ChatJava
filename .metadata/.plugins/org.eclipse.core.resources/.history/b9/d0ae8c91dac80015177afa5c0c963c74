@@ -1,0 +1,28 @@
+
+package ch.hearc.cours.moo.fibo;
+
+public class UseFibo
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+
+		Fibo fibo = new Fibo(n);
+		fibo.run();
+		fibo.getTabSuite();
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	}

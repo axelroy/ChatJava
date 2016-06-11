@@ -1,0 +1,87 @@
+
+package ch.hearc.cours.io.file.object.bin;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+import ch.hearc.cours.io.file.data.Tools;
+
+public class UseFileObject
+	{
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		try
+			{
+			main();
+			}
+		catch (Exception e)
+			{
+			e.printStackTrace();
+			}
+		}
+
+	public static void main() throws IOException, ClassNotFoundException
+		{
+		int n = 10;
+		String fileName = "equipe.bin";
+		Equipe equipeSrc = create(n);
+		write(equipeSrc,fileName);
+		Equipe equipeClone = read(fileName);
+		System.out.println(equipeSrc);
+		System.out.println(equipeClone);
+		Tools.delete(fileName);
+		//TODO: JUnit, isEquals pour equipeSrc = equipeClone
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	public static Equipe read(String fileName) throws IOException, ClassNotFoundException
+		{
+		FileInputStream fis = new FileInputStream(fileName);
+		BufferedInputStream bis= new BufferedInputStream(fis);
+		ObjectInputStream ois = new ObjectInputStream(bis);
+
+		Equipe equipe = (Equipe) ois.readObject();
+
+		ois.close();
+		bis.close();
+		fis.close();
+		return equipe;
+		}
+
+	public static void write(Serializable equipeSrc, String fileName) throws IOException
+		{
+		FileOutputStream fos = new FileOutputStream(fileName);
+		BufferedOutputStream bos = new BufferedOutputStream(fos);
+		ObjectOutputStream oos = new ObjectOutputStream(bos);
+
+		oos.writeObject(equipeSrc);
+
+		oos.close();
+		bos.close();
+		fos.close();
+		}
+
+	public static Equipe create(int n)
+		{
+		Equipe equipe = new Equipe("Xamax");
+		for(int i = 0; i < n; i++)
+			{
+			equipe.add(new Homme("arc" + i,i));
+			}
+		return equipe;
+		}
+	}
+

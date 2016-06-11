@@ -1,0 +1,114 @@
+
+package ch.hearc.cours.moo.heritage.formes;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
+import org.hamcrest.core.IsEqual;
+
+public class Dessin implements Iterable<Formes>
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	public Dessin(String nom)
+		{
+		this.nom = nom;
+		listFormes = new ArrayList<Formes>();
+		}
+
+	public Dessin(Dessin source)
+		{
+		this(source.nom);
+
+		for(Formes f:source)
+			{
+			this.listFormes.add(f.cloneOf());
+			}
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	@Override
+	public Iterator<Formes> iterator()
+		{
+		return listFormes.iterator();
+		}
+
+	public Dessin cloneOf()
+		{
+		return new Dessin(this);
+		}
+
+	@Override
+	public String toString()
+		{
+		StringBuilder stringBuilder = new StringBuilder();
+		for(Formes f:this)
+			{
+			stringBuilder.append(f.toString());
+			stringBuilder.append("\n");
+			}
+
+		return stringBuilder.toString();
+		}
+
+	public boolean isEquals(Dessin d2)
+		{
+		if (listFormes.size() != d2.listFormes.size())
+			{
+				return false;
+				}
+		else if (!this.nom.equals(d2.nom))
+			{
+				return false;
+				}
+		else
+			{
+
+			Comparator<Formes> comparator = new Comparator<Formes>()
+				{
+
+					@Override
+					public int compare(Formes f1, Formes f2)
+						{
+						if( {
+							return 0;
+							}
+						}
+				};
+
+			Collections.so
+			}
+		}
+
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+
+	//Inputs
+	private String nom;
+
+	//Tools
+	private List<Formes> listFormes;
+
+	}

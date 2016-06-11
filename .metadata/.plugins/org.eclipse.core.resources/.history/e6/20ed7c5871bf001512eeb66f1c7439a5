@@ -1,0 +1,91 @@
+
+package ch.hearc.cours.moo.heritage.animal;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
+public class Zoo implements Iterable<Animals>
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	public Zoo(String nom)
+		{
+		this.nom = nom;
+		this.list = new LinkedList<Animals>();
+		}
+
+	public Zoo(Zoo source)
+		{
+		this(source.nom); // copie superficielle autorisée car string inaltérable
+
+		for(Animals animals:source)
+			{
+			//this.list.add(new Animals(animals)); !! INTERDIT ANIMAL ABSTRAITNON INSTANCIABLE
+			this.list.add(animals.cloneOf());
+			}
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public boolean add(Animals a)
+		{
+		return list.add(a);
+		}
+
+	@Override
+	public String toString()
+		{
+		StringBuilder builder = new StringBuilder();
+		builder.append("Zoo [nom=");
+		builder.append(this.nom);
+		builder.append(", list=");
+		builder.append(this.list);
+		builder.append("]");
+		return builder.toString();
+		}
+
+	public String mange()
+		{
+		StringBuilder builder = new StringBuilder();
+		for(Animals animals:this)
+			{
+			builder.append(animals.toString() + "\n");
+			}
+		return builder.toString();
+		}
+
+	@Override
+	public Iterator<Animals> iterator()
+		{
+		return list.iterator();
+		}
+
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+
+	// input
+	private String nom;
+
+	// tools
+	private List<Animals> list;
+
+	}

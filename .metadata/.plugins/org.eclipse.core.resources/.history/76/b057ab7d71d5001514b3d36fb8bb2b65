@@ -1,0 +1,96 @@
+
+package ch.hearc.cours.gui.jcomponent.hello;
+
+import java.awt.Color;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class JFrameHello extends JFrame
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	public JFrameHello()
+		{
+		geometrie();
+		controle();
+		apparence();
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	private void geometrie()
+		{
+		bouton1 = new JButton("Coucou1");
+		bouton2 = new JButton("Coucou2");
+		bouton3 = new JButton("Coucou3");
+
+		FlowLayout layout = new FlowLayout(FlowLayout.CENTER);
+		// v1
+		this.getContentPane().setLayout(layout);
+		// v2
+		setLayout(layout);
+
+		this.getContentPane().add(bouton1);
+		this.getContentPane().add(bouton2);
+		this.getContentPane().add(bouton3);
+
+
+
+		}
+
+	private void controle()
+		{
+		// TODO Auto-generated method stub
+
+		}
+
+	private void apparence()
+		{
+		//bouton
+			{
+			bouton1.setBackground(Color.CYAN);
+			bouton1.setForeground(new Color(255, 255, 255));
+			//bouton1.setOpaque(false);
+			}
+		//JFrame
+			{
+			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			//this.setResizable(false);
+			//this.setUndecorated(true);
+			this.getContentPane().setBackground(Color.blue);
+			this.setTitle("Hello");
+			this.setLocation(0, 0);
+			this.setSize(300, 200);
+			this.setVisible(true); // dernière chose du constructeur
+			}
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+
+	//tools
+	private JButton bouton1;
+	private JButton bouton2;
+	private JButton bouton3;
+
+	}

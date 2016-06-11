@@ -1,0 +1,68 @@
+
+package ch.hearc.cours.moo.fibo;
+
+import java.math.BigInteger;
+import java.util.LinkedList;
+import java.util.List;
+
+public class Fibonacci
+	{
+	
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+	Fibonacci()
+		{
+		valN = new BigInteger("0");
+		valNPlusUn = new BigInteger("1");
+		}
+		
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+	BigInteger GetNext()
+		{
+		BigInteger ret = valN;
+		valNPlusDeux = valN.add(valNPlusUn);
+		valN = valNPlusUn;
+		valNPlusUn = valNPlusDeux;
+		return ret;
+		}
+		
+	List<BigInteger> GetRecursiveList(int n)
+		{
+		List<BigInteger> list = new LinkedList<BigInteger>();
+		GetRecursiveList(n, list);
+		}
+		
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+	
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+	
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+	List<BigInteger> GetRecursiveList(int n,List<BigInteger> list)
+	{
+		n--;
+		list.add(GetNext());
+		if(n>0)
+			{
+			GetRecursiveList(n,list);
+			}
+		return list;
+		
+	}
+	
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+	BigInteger valN;
+	BigInteger valNPlusUn;
+	BigInteger valNPlusDeux;
+	
+	}

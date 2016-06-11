@@ -1,0 +1,59 @@
+
+package ch.hearc.cours.gui.java2d.bouton;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Ellipse2D;
+
+import javax.swing.JButton;
+
+public class JButtonDessin extends JButton
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	public JButtonDessin()
+		{
+		super("Bouton");
+
+		cercle = new Ellipse2D.Double(5, 5, 20, 20);
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	@Override
+	protected void paintComponent(Graphics g)
+		{
+		super.paintComponent(g);
+		Graphics2D g2d = (Graphics2D)g;
+		AffineTransform tranform = g2d.getTransform();
+		draw(g2d);
+		g2d.setTransform(tranform);
+		}
+
+	private void draw(Graphics2D g2d)
+		{
+		g2d.setColor(Color.RED);
+		
+		g2d.fill(cercle);
+		//TODO
+		//P'tit truc sympas à faire: clic sur le rond rouge, enlève le bouton du panel
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+
+	// Tools:
+	private Ellipse2D cercle;
+	}

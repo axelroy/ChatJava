@@ -1,0 +1,105 @@
+
+package ch.hearc.cours.projet.gui.chat.input;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
+
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import ch.hearc.cours.projet.chatrmi.PcChat;
+
+public class JPanelInput extends JPanel
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	public JPanelInput()
+		{
+		pcChat = PcChat.getInstance();
+		geometry();
+		control();
+		appearance();
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	private void geometry()
+		{
+		// JComponent : Instanciation
+		jButton = new JButton("Envoyer");
+		jTextField = new JTextField();
+
+		Box box = Box.createHorizontalBox();
+		// Layout : Specification
+		box.add(jTextField);
+		Box.createGlue();
+		box.add(jButton);
+
+			{
+			BorderLayout borderLayout = new BorderLayout();
+			setLayout(borderLayout);
+			}
+
+		add(box, BorderLayout.CENTER);
+		}
+
+	private void control()
+		{
+		jButton.addActionListener(new ActionListener()
+			{
+
+
+			@Override
+			public void actionPerformed(ActionEvent e)
+				{
+				try
+					{
+					(pcChat.getjTextAreaCustom()).addText(jTextField.getText());
+					(pcChat.getRemoteTextArea()).addText(jTextField.getText());
+					}
+				catch (RemoteException e1)
+					{
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+					}
+
+				}
+			});
+		}
+
+	private void appearance()
+		{
+
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+
+	// Tools
+	private JButton jButton;
+	private JTextField jTextField;
+	private PcChat pcChat;
+
+	}

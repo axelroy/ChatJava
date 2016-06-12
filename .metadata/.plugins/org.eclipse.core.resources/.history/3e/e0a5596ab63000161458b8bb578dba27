@@ -150,7 +150,7 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 
 					try
 						{
-						remotePanelVideo.putImage(imageToBytes((BufferedImage)imageMe));
+						remotePanelVideo.putImage(imageToBytes(imageMe));
 						}
 					catch (RemoteException e)
 						{

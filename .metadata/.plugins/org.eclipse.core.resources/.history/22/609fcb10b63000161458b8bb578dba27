@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.rmi.RemoteException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import com.github.sarxos.webcam.Webcam;
@@ -64,9 +65,9 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 	@Override
-	public void putImage(byte[] image) throws RemoteException
+	public void putImage(ImageIcon imageIcon) throws RemoteException
 		{
-		imageYou = bytesToImage(image);
+		imageYou = imageIcon.getImage();
 		System.out.println("[panelvideo]reception de l'image");
 		}
 
@@ -101,7 +102,7 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 		{
 
 		g2d.drawImage(imageYou, (this.getWidth() - dimensionImageYou.width) / 2, (this.getHeight() - dimensionImageYou.height) / 2, dimensionImageYou.width, dimensionImageYou.height, null);
-		g2d.drawImage(imageMe, 0, 0, dimensionImageMe.width, dimensionImageMe.height, null);
+		g2d.drawImage(bytesToImage(imageToBytes((BufferedImage)imageMe)), 0, 0, dimensionImageMe.width, dimensionImageMe.height, null);
 		}
 
 	private void geometry()
@@ -150,7 +151,7 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 
 					try
 						{
-						remotePanelVideo.putImage(imageToBytes((BufferedImage)imageMe));
+						remotePanelVideo.putImage(new ImageIcon(imageMe));
 						}
 					catch (RemoteException e)
 						{

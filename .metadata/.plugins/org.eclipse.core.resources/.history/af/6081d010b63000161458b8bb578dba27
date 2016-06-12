@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.rmi.RemoteException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import com.github.sarxos.webcam.Webcam;
@@ -150,7 +151,7 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 
 					try
 						{
-						remotePanelVideo.putImage(imageToBytes((BufferedImage)imageMe));
+						remotePanelVideo.putImage(imageToBytes(imageMe));
 						}
 					catch (RemoteException e)
 						{

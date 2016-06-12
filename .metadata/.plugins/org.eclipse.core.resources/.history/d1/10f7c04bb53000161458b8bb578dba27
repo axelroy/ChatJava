@@ -139,7 +139,7 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 					{
 					try
 						{
-						Thread.sleep(50);
+						Thread.sleep(20);
 						}
 					catch (InterruptedException e)
 						{

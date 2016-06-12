@@ -7,6 +7,5 @@
 <listEntry value="1"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="ch.hearc.cours.projet.LauchChat"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-vmargs&#13;&#10;-Xms512m&#13;&#10;-Xmx1024m&#13;&#10;-XX:+UseParallelGC&#13;&#10;-XX:PermSize=256M&#13;&#10;-XX:MaxPermSize=512M"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="PCoursJava"/>
 </launchConfiguration>

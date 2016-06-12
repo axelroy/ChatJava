@@ -102,7 +102,7 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 		{
 
 		g2d.drawImage(imageYou, (this.getWidth() - dimensionImageYou.width) / 2, (this.getHeight() - dimensionImageYou.height) / 2, dimensionImageYou.width, dimensionImageYou.height, null);
-		g2d.drawImage(bytesToImage(imageToBytes((BufferedImage)imageMe)), 0, 0, dimensionImageMe.width, dimensionImageMe.height, null);
+		g2d.drawImage(imageMe, 0, 0, dimensionImageMe.width, dimensionImageMe.height, null);
 		}
 
 	private void geometry()
@@ -139,7 +139,7 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 					{
 					try
 						{
-						Thread.sleep(50);
+						Thread.sleep(20);
 						}
 					catch (InterruptedException e)
 						{
@@ -195,19 +195,10 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 			return null;
 			}
 		}
-
+	
 	private BufferedImage bytesToImage(byte[] bytesImages)
 		{
-		try
-			{
-			return ImageIO.read(new ByteArrayInputStream(bytesImages));
-			}
-		catch (IOException e)
-			{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-			}
+		return ImageIO.read(new ByteArrayInputStream(bytesImages))
 		}
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|

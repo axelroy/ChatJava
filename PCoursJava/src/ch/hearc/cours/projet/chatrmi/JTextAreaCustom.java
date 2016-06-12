@@ -17,8 +17,8 @@ public class JTextAreaCustom extends JTextArea implements TextArea_I
 	public JTextAreaCustom() throws RemoteException
 		{
 		super();
-		System.out.println("[JTextAreaCustom] idRMI " + Id.idRmi2+ "  ");
-		rmiUrl = new RmiURL(Id.idRmi2, RmiTools.getLocalHost(), ChatPreferences.getPort());
+		rmiUrl = new RmiURL(Id.idRmi1, RmiTools.getLocalHost(), ChatPreferences.getPort());
+		//System.out.println("[JTextAreaCustom]" + rmiUrl);
 		RmiTools.shareObject(this, rmiUrl);
 		}
 

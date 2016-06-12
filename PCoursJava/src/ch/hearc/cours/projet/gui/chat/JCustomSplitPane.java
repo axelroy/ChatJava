@@ -7,6 +7,7 @@ import java.awt.event.ComponentEvent;
 import javax.swing.JSplitPane;
 
 import ch.hearc.cours.projet.chatrmi.JPanelVideo;
+import ch.hearc.cours.projet.chatrmi.PcChat;
 
 public class JCustomSplitPane extends JSplitPane
 	{
@@ -44,7 +45,11 @@ public class JCustomSplitPane extends JSplitPane
 		setResizeWeight(separationRatio);
 
 		jPanelMessage = new JPanelMessage();
-		jPanelVideo = new JPanelVideo();
+
+		// récupération du panel video via pcChat
+
+		PcChat pcChat = PcChat.getInstance();
+		jPanelVideo = pcChat.getjPanelVideo();
 
 		setLeftComponent(jPanelVideo);
 		setRightComponent(jPanelMessage);

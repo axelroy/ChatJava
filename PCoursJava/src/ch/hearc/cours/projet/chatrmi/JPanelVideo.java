@@ -6,22 +6,21 @@ import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.Point;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.geom.AffineTransform;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.rmi.RemoteException;
 
-import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamResolution;
 
 import ch.hearc.cours.projet.tools.Tools;
+
+import com.bilat.tools.reseau.rmi.RmiTools;
+import com.bilat.tools.reseau.rmi.RmiURL;
 
 public class JPanelVideo extends JPanel implements PanelVideo_I
 	{
@@ -30,7 +29,7 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
-	public JPanelVideo()
+	public JPanelVideo() throws RemoteException
 		{
 		webCam = Webcam.getDefault();
 
@@ -41,22 +40,30 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 
 		dimensionImageYou = new Dimension(1280, 720);
 		dimensionImageMe = Tools.getScaledDimension(WebcamResolution.HD720.getSize(), AREA_ME);
-		System.out.println(dimensionImageMe);
 
 		webCam.open();
+
+		imageMe = webCam.getImage();
+		imageYou = null;
+
+		PcChat pcChat = PcChat.getInstance();
+		RemotePanelVideo = pcChat.getRemotePanelVideo();
 
 		geometry();
 		control();
 		appearance();
+
+		rmiUrl = new RmiURL(Id.idRmi2, RmiTools.getLocalHost(), ChatPreferences.getPort());
+		RmiTools.shareObject(this, rmiUrl);
 		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 	@Override
-	public void putImage(Image image) throws RemoteException
+	public void putImage(ImageIcon imageIcon) throws RemoteException
 		{
-		imageYou = image;
+		imageYou = imageIcon.getImage();
 		}
 
 	@Override
@@ -83,28 +90,11 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 
 	private void draw(Graphics2D g2d)
 		{
-		BufferedImage bufferedImage = webCam.getImage();
-
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		try
+		if (imageYou == null)
 			{
-			ImageIO.write(bufferedImage, "jpg", baos);
+			g2d.drawImage(imageYou, (this.getWidth() - dimensionImageYou.width) / 2, (this.getHeight() - dimensionImageYou.height) / 2, dimensionImageYou.width, dimensionImageYou.height, null);
 			}
-		catch (IOException e)
-			{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			}
-		byte[] bytes = baos.toByteArray();
-
-		//Image image = bufferedImage.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
-
-		//TODO delet
-		imageYou = bufferedImage;
-
-		g2d.drawImage(imageYou, (this.getWidth() - dimensionImageYou.width) / 2, (this.getHeight() - dimensionImageYou.height) / 2, dimensionImageYou.width, dimensionImageYou.height, null);
-
-		g2d.drawImage(bufferedImage, 0, 0, dimensionImageMe.width, dimensionImageMe.height, null);
+		g2d.drawImage(imageMe, 0, 0, dimensionImageMe.width, dimensionImageMe.height, null);
 		}
 
 	private void geometry()
@@ -145,6 +135,19 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 						}
+
+					imageMe = webCam.getImage();
+
+					try
+						{
+						RemotePanelVideo.putImage(new ImageIcon(imageMe));
+						}
+					catch (RemoteException e)
+						{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						}
+
 					JPanelVideo.this.repaint();
 
 					}
@@ -178,10 +181,15 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 	private Webcam webCam;
 	private Dimension dimensionImageMe;
 	private Dimension dimensionImageYou;
-	private Point imageYouPosition;
 
+	// Input
 	private Image imageYou;
+	private Image imageMe;
+
+	// Output
+	private PanelVideo_I RemotePanelVideo;
 
 	public static final Dimension AREA_ME = new Dimension(300, 300);
+	public final RmiURL rmiUrl;
 
 	}

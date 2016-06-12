@@ -23,8 +23,8 @@ public class PcChat implements Runnable
 		{
 		try
 			{
-			rmiUrl = new RmiURL(Id.idRmi1, InetAddress.getByName(ChatPreferences.getIp()), ChatPreferences.getPort());
-			System.err.println("[PcChat]: création du rmiurl");
+			rmiUrlChat = new RmiURL(Id.idRmi1, InetAddress.getByName(ChatPreferences.getIp()), ChatPreferences.getPort());
+			rmiUrlVideo = new RmiURL(Id.idRmi2, InetAddress.getByName(ChatPreferences.getIp()), ChatPreferences.getPort());
 			}
 		catch (UnknownHostException e)
 			{
@@ -68,16 +68,29 @@ public class PcChat implements Runnable
 		return this.jTextAreaCustom;
 		}
 
+	public JPanelVideo getjPanelVideo()
+		{
+		return this.jPanelVideo;
+		}
+
+
+	public PanelVideo_I getRemotePanelVideo()
+		{
+		return this.remotePanelVideo;
+		}
+
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/
 
+
 	private void clientSide()
 		{
 		try
 			{
-			connect();
+			connectChat();
+			connectVideo();
 			}
 		catch (RemoteException e)
 			{
@@ -86,12 +99,20 @@ public class PcChat implements Runnable
 			}
 		}
 
-	private void connect() throws RemoteException
+	private void connectChat() throws RemoteException
 		{
 		int delayMs = 500;
 		int nbTentatives = 100;
-		// adress ip distante
-		this.remoteTextArea = (TextArea_I)RmiTools.connectionRemoteObjectBloquant(rmiUrl, delayMs, nbTentatives);
+
+		this.remoteTextArea = (TextArea_I)RmiTools.connectionRemoteObjectBloquant(rmiUrlChat, delayMs, nbTentatives);
+		}
+
+	private void connectVideo() throws RemoteException
+		{
+		int delayMs = 500;
+		int nbTentatives = 100;
+
+		this.remotePanelVideo = (PanelVideo_I)RmiTools.connectionRemoteObjectBloquant(rmiUrlVideo, delayMs, nbTentatives);
 		}
 
 
@@ -100,6 +121,7 @@ public class PcChat implements Runnable
 		try
 			{
 			jTextAreaCustom = new JTextAreaCustom();
+			jPanelVideo = new JPanelVideo();
 
 			}
 		catch (RemoteException e)
@@ -113,11 +135,16 @@ public class PcChat implements Runnable
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 	//Tools
-	private RmiURL rmiUrl;
+	private RmiURL rmiUrlChat;
+	private RmiURL rmiUrlVideo;
 
 	//output
 	private TextArea_I remoteTextArea;
 	private JTextAreaCustom jTextAreaCustom;
+
+	private JPanelVideo jPanelVideo;
+	private PanelVideo_I remotePanelVideo;
+
 
 	/*------------------------------*\
 	|*			  Static			*|

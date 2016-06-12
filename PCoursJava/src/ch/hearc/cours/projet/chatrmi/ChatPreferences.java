@@ -90,5 +90,7 @@ public class ChatPreferences
 	private static final int DEFAULT_PORT = 1099;
 	private static final String DEFAULT_USER = "user";
 
+	public static final String loggerName = "CHATRMI";
+
 
 	}

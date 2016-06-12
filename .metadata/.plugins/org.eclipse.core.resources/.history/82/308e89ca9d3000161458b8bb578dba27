@@ -46,7 +46,8 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 		imageMe = webCam.getImage();
 		imageYou = null;
 
-
+		PcChat pcChat = PcChat.getInstance();
+		RemotePanelVideo = pcChat.getRemotePanelVideo();
 
 		geometry();
 		control();
@@ -63,12 +64,6 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 	public void putImage(ImageIcon imageIcon) throws RemoteException
 		{
 		imageYou = imageIcon.getImage();
-		System.out.println("[panelvideo]reception de l'image");
-		}
-
-	public void start()
-		{
-		thread.start();
 		}
 
 	@Override
@@ -122,16 +117,13 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 
 	private void control()
 		{
-		thread = new Thread(new Runnable()
+		Thread thread = new Thread(new Runnable()
 			{
 
 
 			@Override
 			public void run()
 				{
-				PcChat pcChat = PcChat.getInstance();
-				PanelVideo_I remotePanelVideo = pcChat.getRemotePanelVideo();
-
 				while(!Thread.currentThread().isInterrupted())
 					{
 					try
@@ -146,20 +138,21 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 
 					imageMe = webCam.getImage();
 
-					try
-						{
-						remotePanelVideo.putImage(new ImageIcon(imageMe));
-						}
-					catch (RemoteException e)
-						{
-						System.out.println();
-						}
-
-					JPanelVideo.this.repaint();
+//					try
+//						{
+//						RemotePanelVideo.putImage(new ImageIcon(imageMe));
+//						}
+//					catch (RemoteException e)
+//						{
+//						System.out.println();
+//						}
+//
+//					JPanelVideo.this.repaint();
 					}
 				}
 			});
 
+		thread.start();
 
 		addComponentListener(new ComponentAdapter()
 			{
@@ -185,12 +178,13 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 	private Webcam webCam;
 	private Dimension dimensionImageMe;
 	private Dimension dimensionImageYou;
-	Thread thread;
 
 	// Input
 	private Image imageYou;
 	private Image imageMe;
 
+	// Output
+	private PanelVideo_I RemotePanelVideo;
 
 	public static final Dimension AREA_ME = new Dimension(300, 300);
 	public final RmiURL rmiUrl;

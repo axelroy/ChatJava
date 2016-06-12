@@ -63,7 +63,6 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 	public void putImage(ImageIcon imageIcon) throws RemoteException
 		{
 		imageYou = imageIcon.getImage();
-		System.out.println("[panelvideo]reception de l'image");
 		}
 
 	public void start()

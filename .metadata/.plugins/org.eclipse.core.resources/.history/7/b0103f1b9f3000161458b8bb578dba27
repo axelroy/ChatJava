@@ -113,7 +113,6 @@ public class PcChat implements Runnable
 		int nbTentatives = 100;
 
 		this.remotePanelVideo = (PanelVideo_I)RmiTools.connectionRemoteObjectBloquant(rmiUrlVideo, delayMs, nbTentatives);
-		jPanelVideo.start();
 		}
 
 

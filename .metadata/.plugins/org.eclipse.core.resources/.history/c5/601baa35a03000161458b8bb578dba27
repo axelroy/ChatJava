@@ -63,7 +63,6 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 	public void putImage(ImageIcon imageIcon) throws RemoteException
 		{
 		imageYou = imageIcon.getImage();
-		System.out.println("[panelvideo]reception de l'image");
 		}
 
 	public void start()
@@ -191,6 +190,8 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 	private Image imageYou;
 	private Image imageMe;
 
+	// Output
+	private PanelVideo_I remotePanelVideo;
 
 	public static final Dimension AREA_ME = new Dimension(300, 300);
 	public final RmiURL rmiUrl;

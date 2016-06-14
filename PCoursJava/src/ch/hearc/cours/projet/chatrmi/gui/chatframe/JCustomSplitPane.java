@@ -51,6 +51,9 @@ public class JCustomSplitPane extends JSplitPane
 		PcChat pcChat = PcChat.getInstance();
 		jPanelVideo = pcChat.getjPanelVideo();
 
+		// activation de la webcam
+		jPanelVideo.openWebcam();
+
 		setLeftComponent(jPanelVideo);
 		setRightComponent(jPanelMessage);
 

@@ -1,10 +1,9 @@
 
 package ch.hearc.cours.projet.chatrmi.states;
 
-import java.awt.SplashScreen;
-
 import ch.hearc.cours.projet.chatrmi.ChatManager;
 import ch.hearc.cours.projet.chatrmi.PcChat;
+import ch.hearc.cours.projet.chatrmi.tools.JFrameSplashScreen;
 
 
 public class ConnectingState implements Statement_I
@@ -17,7 +16,8 @@ public class ConnectingState implements Statement_I
  		Thread chatThread = new Thread(pcChat);
 		chatThread.start();
 
-		// TODO Splashscreen
+		splashScreen = new JFrameSplashScreen("Try to Connect");
+
 		}
 
 
@@ -31,7 +31,7 @@ public class ConnectingState implements Statement_I
 	@Override
 	public void leave()
 		{
-		// TODO close Splashscreen
+		splashScreen.dispose();
 
 		}
 
@@ -59,7 +59,7 @@ public class ConnectingState implements Statement_I
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 
-	private SplashScreen splashScreen;
+	private JFrameSplashScreen splashScreen;
 
 	}
 

@@ -48,9 +48,8 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 		dimensionImageYou = new Dimension(1280, 720);
 		dimensionImageMe = Tools.getScaledDimension(WebcamResolution.PAL.getSize(), AREA_ME);
 
-		webCam.open();
 
-		imageMe = webCam.getImage();
+		imageMe = null;
 		imageYou = null;
 
 
@@ -66,6 +65,11 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
+	public void openWebcam()
+		{
+		webCam.open();
+		}
+
 	@Override
 	public void putImage(byte[] image) throws RemoteException
 		{

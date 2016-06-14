@@ -1,38 +1,23 @@
+package ch.hearc.cours.projet.chatrmi.tools;
 
-package ch.hearc.cours.projet.chatrmi.states;
+import java.awt.BorderLayout;
 
-import ch.hearc.cours.projet.chatrmi.ChatManager;
-import ch.hearc.cours.projet.chatrmi.gui.chatframe.JFrameChat;
-import ch.hearc.cours.projet.chatrmi.tools.JFrameSplashScreen;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
-
-public class LoadingChatState implements Statement_I
+public class JFrameSplashScreen extends JFrame
 	{
-
-	public LoadingChatState()
-		{
-		System.out.println("[LoadingChatState] enter");
-		new JFrameChat();
-		splashScreen = new JFrameSplashScreen("Loading chat");
-		}
-
-	@Override
-	public void next(ChatManager chatManager)
-		{
-		chatManager.SetState(new RunningChatState());
-
-		}
-
-	@Override
-	public void leave()
-		{
-		splashScreen.dispose();
-
-		}
 
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
+
+	public JFrameSplashScreen(String text)
+		{
+		geometry(text);
+		control();
+		appearance();
+		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
@@ -50,9 +35,44 @@ public class LoadingChatState implements Statement_I
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/
 
+	private void geometry(String text)
+		{
+		// JComponent : Instanciation
+		jLabel = new JLabel(text);
+
+		// Layout : Specification
+			{
+			BorderLayout borderLayout = new BorderLayout();
+			setLayout(borderLayout);
+
+			// borderLayout.setHgap(20);
+			// borderLayout.setVgap(20);
+			}
+
+		// JComponent : add
+		add(jLabel,BorderLayout.CENTER);
+		}
+
+	private void control()
+		{
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setUndecorated(true);
+		}
+
+	private void appearance()
+		{
+		setSize(600, 400);
+		setLocationRelativeTo(null); // frame centrer
+		setVisible(true); // last!
+		}
+
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
-	private JFrameSplashScreen splashScreen;
+
+	// Tools
+	private JLabel jLabel;
+
+
 	}
 

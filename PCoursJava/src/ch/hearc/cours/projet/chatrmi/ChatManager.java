@@ -28,12 +28,12 @@ public class ChatManager
 		return INSTANCE;
 		}
 
-	public synchronized void nextState()
+	public void nextState()
 		{
 		currentState.next(this);
 		}
 
-	public synchronized void SetState(Statement_I state)
+	public void SetState(Statement_I state)
 		{
 		currentState.leave();
 		currentState = state;

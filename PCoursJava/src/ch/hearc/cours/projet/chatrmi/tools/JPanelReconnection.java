@@ -1,31 +1,26 @@
 
-package ch.hearc.cours.projet.chatrmi.gui.chatframe;
+package ch.hearc.cours.projet.chatrmi.tools;
 
-import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-import ch.hearc.cours.projet.chatrmi.ChatManager;
-import ch.hearc.cours.projet.chatrmi.states.RunningChatState;
-
-public class JFrameChat extends JFrame
+public class JPanelReconnection extends JPanel
 	{
 
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
-	public JFrameChat()
+	public JPanelReconnection()
 		{
 		geometry();
 		control();
 		appearance();
-
-		System.out.println("[JFrameChat] to runing state");
-		ChatManager chatManager = ChatManager.getInstance();
-
-		chatManager.SetState(new RunningChatState());
-
 		}
 
 	/*------------------------------------------------------------------*\
@@ -47,31 +42,53 @@ public class JFrameChat extends JFrame
 	private void geometry()
 		{
 		// JComponent : Instanciation
-		jPanelChat = new JPanelContainer();
+		label = new JLabel("Voulez-vous vous reconnecter?");
+		buttonNo = new JButton("Non");
+		buttonYes = new JButton("Oui");
+
 		// Layout : Specification
 			{
-			BorderLayout borderLayout = new BorderLayout();
-			setLayout(borderLayout);
+			FlowLayout flowlayout = new FlowLayout(FlowLayout.CENTER);
+			setLayout(flowlayout);
 
-			// borderLayout.setHgap(20);
-			// borderLayout.setVgap(20);
+			// flowlayout.setHgap(20);
+			// flowlayout.setVgap(20);
 			}
 
 		// JComponent : add
-		add(jPanelChat, BorderLayout.CENTER);
+		add(label);
+		add(buttonYes);
+		add(buttonNo);
 		}
 
 	private void control()
 		{
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		buttonYes.addActionListener(new ActionListener()
+			{
+
+			@Override
+			public void actionPerformed(ActionEvent e)
+				{
+				// TODO Auto-generated method stub
+
+				}
+			});
+
+		buttonNo.addActionListener(new ActionListener()
+			{
+
+			@Override
+			public void actionPerformed(ActionEvent e)
+				{
+				// TODO Auto-generated method stub
+
+				}
+			});
 		}
 
 	private void appearance()
 		{
-		setSize(600, 400);
-		setLocationRelativeTo(null); // frame centrer
-		setVisible(true); // last!
-		setTitle("Visio Chat 2000");
+		// rien
 		}
 
 	/*------------------------------------------------------------------*\
@@ -79,6 +96,8 @@ public class JFrameChat extends JFrame
 	\*------------------------------------------------------------------*/
 
 	// Tools
-	private JPanelContainer jPanelChat;
+	private JButton buttonYes;
+	private JButton buttonNo;
+	private JLabel label;
 
 	}

@@ -53,7 +53,6 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 		imageYou = null;
 
 
-
 		geometry();
 		control();
 		appearance();

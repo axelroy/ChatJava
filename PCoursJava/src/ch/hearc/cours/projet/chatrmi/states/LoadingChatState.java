@@ -13,8 +13,25 @@ public class LoadingChatState implements Statement_I
 	public void enter()
 		{
 		System.out.println("[LoadingChatState] enter");
-		new JFrameChat();
+		JFrameChat jFrameChat = new JFrameChat();
 		splashScreen = new JFrameSplashScreen("Loading chat");
+
+		while(!jFrameChat.isEnabled())
+			{
+			try
+				{
+				Thread.sleep(30);
+				}
+			catch (InterruptedException e)
+				{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				}
+			}
+
+		ChatManager chatManger = ChatManager.getInstance();
+		chatManger.SetState(new RunningChatState());
+
 		}
 
 	@Override

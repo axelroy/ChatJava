@@ -5,9 +5,6 @@ import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 
-import ch.hearc.cours.projet.chatrmi.ChatManager;
-import ch.hearc.cours.projet.chatrmi.states.RunningChatState;
-
 public class JFrameChat extends JFrame
 	{
 
@@ -20,11 +17,6 @@ public class JFrameChat extends JFrame
 		geometry();
 		control();
 		appearance();
-
-		System.out.println("[JFrameChat] to runing state");
-		ChatManager chatManager = ChatManager.getInstance();
-		chatManager.SetState(new RunningChatState());
-
 		}
 
 	/*------------------------------------------------------------------*\

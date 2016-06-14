@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="ch.hearc.cours.moo.heritage.hello.HmsiTimes"/>
-<fullyQualifiedTypeName name="ch.hearc.cours.moo.heritage.animal.Tigres"/>
-<fullyQualifiedTypeName name="java.math.BigInteger"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.LinkedList"/>
-<fullyQualifiedTypeName name="java.awt.event.ComponentAdapter"/>
-<fullyQualifiedTypeName name="java.lang.Math"/>
-<fullyQualifiedTypeName name="ch.hearc.cours.projet.JFrameChat"/>
-<fullyQualifiedTypeName name="ch.hearc.cours.projet.JTabPane"/>
 <fullyQualifiedTypeName name="ch.hearc.cours.projet.JPanelChat"/>
 <fullyQualifiedTypeName name="ch.hearc.cours.gui.layout.combinaison.tools.JPanelDecorator"/>
 <fullyQualifiedTypeName name="ch.hearc.cours.projet.configuration.JPanelConfiguration"/>
@@ -36,7 +27,6 @@
 <fullyQualifiedTypeName name="ch.hearc.cours.projet.gui.connexion.JFrameConnexion"/>
 <fullyQualifiedTypeName name="javax.swing.SwingUtilities"/>
 <fullyQualifiedTypeName name="ch.hearc.cours.projet.gui.connexion.JPanelConnexion"/>
-<fullyQualifiedTypeName name="ch.hearc.cours.projet.chatrmi.JTextAreaCustom"/>
 <fullyQualifiedTypeName name="com.bilat.tools.reseau.rmi.RmiTools"/>
 <fullyQualifiedTypeName name="java.net.InetAddress"/>
 <fullyQualifiedTypeName name="java.rmi.Remote"/>
@@ -44,20 +34,30 @@
 <fullyQualifiedTypeName name="ch.hearc.cours.projet.chatrmi.Id"/>
 <fullyQualifiedTypeName name="java.rmi.RemoteException"/>
 <fullyQualifiedTypeName name="ch.hearc.cours.projet.gui.chat.JFrameChat"/>
-<fullyQualifiedTypeName name="ch.hearc.cours.projet.chatrmi.PcChat"/>
 <fullyQualifiedTypeName name="javax.swing.JButton"/>
 <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
 <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 <fullyQualifiedTypeName name="ch.hearc.cours.projet.gui.chat.input.JPanelInput"/>
 <fullyQualifiedTypeName name="java.awt.Image"/>
-<fullyQualifiedTypeName name="ch.hearc.cours.projet.chatrmi.PanelVideo_I"/>
 <fullyQualifiedTypeName name="javax.swing.JTextField"/>
 <fullyQualifiedTypeName name="ch.hearc.cours.projet.gui.connexion.ChatPreferences"/>
 <fullyQualifiedTypeName name="com.github.sarxos.webcam.Webcam"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="java.lang.Runnable"/>
-<fullyQualifiedTypeName name="ch.hearc.cours.projet.chatrmi.JPanelVideo"/>
-<fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
 <fullyQualifiedTypeName name="java.awt.Dimension"/>
 <fullyQualifiedTypeName name="com.github.sarxos.webcam.WebcamResolution"/>
+<fullyQualifiedTypeName name="java.util.logging.Logger"/>
+<fullyQualifiedTypeName name="ch.hearc.cours.projet.chatrmi.ChatPreferences"/>
+<fullyQualifiedTypeName name="java.util.logging.Level"/>
+<fullyQualifiedTypeName name="ch.hearc.cours.projet.chatrmi.JTextAreaCustom"/>
+<fullyQualifiedTypeName name="ch.hearc.cours.projet.chatrmi.JPanelVideo"/>
+<fullyQualifiedTypeName name="java.lang.Byte"/>
+<fullyQualifiedTypeName name="ch.hearc.cours.projet.chatrmi.PcChat"/>
+<fullyQualifiedTypeName name="java.awt.Panel"/>
+<fullyQualifiedTypeName name="ch.hearc.cours.projet.chatrmi.PanelVideo_I"/>
+<fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
+<fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
+<fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
+<fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
+<fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
 </qualifiedTypeNameHistroy>

@@ -5,7 +5,11 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 
-import ch.hearc.cours.projet.gui.chat.JFrameChat;
+import ch.hearc.cours.projet.chatrmi.gui.chatframe.JFrameChat;
+import ch.hearc.cours.projet.chatrmi.shared.JPanelVideo;
+import ch.hearc.cours.projet.chatrmi.shared.JTextAreaCustom;
+import ch.hearc.cours.projet.chatrmi.shared.PanelVideo_I;
+import ch.hearc.cours.projet.chatrmi.shared.TextArea_I;
 
 import com.bilat.tools.reseau.rmi.RmiTools;
 import com.bilat.tools.reseau.rmi.RmiURL;
@@ -23,8 +27,8 @@ public class PcChat implements Runnable
 		{
 		try
 			{
-			rmiUrlChat = new RmiURL(Id.idRmi1, InetAddress.getByName(ChatPreferences.getIp()), ChatPreferences.getPort());
-			rmiUrlVideo = new RmiURL(Id.idRmi2, InetAddress.getByName(ChatPreferences.getIp()), ChatPreferences.getPort());
+			rmiUrlChat = new RmiURL(IDsRmi.idRmi1, InetAddress.getByName(ChatPreferences.getIp()), ChatPreferences.getPort());
+			rmiUrlVideo = new RmiURL(IDsRmi.idRmi2, InetAddress.getByName(ChatPreferences.getIp()), ChatPreferences.getPort());
 			}
 		catch (UnknownHostException e)
 			{

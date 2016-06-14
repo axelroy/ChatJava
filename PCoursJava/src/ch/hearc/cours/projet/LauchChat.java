@@ -5,7 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import ch.hearc.cours.projet.chatrmi.ChatPreferences;
-import ch.hearc.cours.projet.gui.connexion.JFrameConnexion;
+import ch.hearc.cours.projet.chatrmi.gui.connexionframe.JFrameConnexion;
 
 public class LauchChat
 	{
@@ -22,8 +22,9 @@ public class LauchChat
 		{
 		Logger logger = Logger.getLogger(ChatPreferences.loggerName);
 		logger.setLevel(Level.WARNING);
+		 new JFrameConnexion();
 
-		JFrameConnexion frameConnexion = new JFrameConnexion();
+
 		}
 
 	/*------------------------------------------------------------------*\

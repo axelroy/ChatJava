@@ -48,6 +48,7 @@ public class PcChat implements Runnable
 		clientSide();
 
 		ChatManager chatManager = ChatManager.getInstance();
+		System.out.println("[PcChat] change state");
 		chatManager.nextState();
 		}
 

@@ -7,7 +7,9 @@ import ch.hearc.cours.projet.chatrmi.gui.connexionframe.JFrameConnexion;
 
 public class ConnectionState implements Statement_I
 	{
-	public ConnectionState()
+
+	@Override
+	public void enter()
 		{
 		System.out.println("[ConnectionState] enter");
 		frameConnexion = new JFrameConnexion();
@@ -53,5 +55,7 @@ public class ConnectionState implements Statement_I
 
 
 	private JFrameConnexion frameConnexion;
+
+
 	}
 

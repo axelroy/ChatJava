@@ -6,12 +6,6 @@ import ch.hearc.cours.projet.chatrmi.ChatManager;
 
 public class ReconnectionState implements Statement_I
 	{
-	public ReconnectionState()
-		{
-		System.out.println("[ReconnectingState] enter");
-
-		//TODO luch message box yes no
-		}
 
 	@Override
 	public void next(ChatManager chatManager)
@@ -24,6 +18,15 @@ public class ReconnectionState implements Statement_I
 	public void leave()
 		{
 		// TODO close message box
+
+		}
+
+	@Override
+	public void enter()
+		{
+		System.out.println("[ReconnectingState] enter");
+
+		//TODO luch message box yes no
 
 		}
 

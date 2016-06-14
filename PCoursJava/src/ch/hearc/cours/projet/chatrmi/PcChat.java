@@ -10,6 +10,7 @@ import ch.hearc.cours.projet.chatrmi.sharedrmis.JPanelVideo;
 import ch.hearc.cours.projet.chatrmi.sharedrmis.JTextAreaCustom;
 import ch.hearc.cours.projet.chatrmi.sharedrmis.PanelVideo_I;
 import ch.hearc.cours.projet.chatrmi.sharedrmis.TextArea_I;
+import ch.hearc.cours.projet.chatrmi.states.LoadingChatState;
 
 import com.bilat.tools.reseau.rmi.RmiTools;
 import com.bilat.tools.reseau.rmi.RmiURL;
@@ -49,7 +50,7 @@ public class PcChat implements Runnable
 
 		ChatManager chatManager = ChatManager.getInstance();
 		System.out.println("[PcChat] change state");
-		chatManager.nextState();
+		chatManager.SetState(new LoadingChatState());
 		}
 
 	public synchronized static PcChat getInstance()

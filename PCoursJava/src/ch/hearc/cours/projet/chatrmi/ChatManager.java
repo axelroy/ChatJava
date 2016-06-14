@@ -13,6 +13,7 @@ public class ChatManager
 	private ChatManager()
 		{
 		currentState = new ConnectionState();
+		currentState.enter();
 		}
 
 	/*------------------------------------------------------------------*\
@@ -33,10 +34,11 @@ public class ChatManager
 		currentState.next(this);
 		}
 
-	public void SetState(Statement_I state)
+	public synchronized void SetState(Statement_I state)
 		{
 		currentState.leave();
 		currentState = state;
+		currentState.enter();
 		}
 	/*------------------------------*\
 	|*				Set				*|

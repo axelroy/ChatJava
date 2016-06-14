@@ -7,5 +7,6 @@ public interface Statement_I
 	{
 	public void next(ChatManager chatManager);
 	public void leave();
+	public void enter();
 	}
 

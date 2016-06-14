@@ -9,7 +9,8 @@ import ch.hearc.cours.projet.chatrmi.tools.JFrameSplashScreen;
 public class LoadingChatState implements Statement_I
 	{
 
-	public LoadingChatState()
+	@Override
+	public void enter()
 		{
 		System.out.println("[LoadingChatState] enter");
 		new JFrameChat();
@@ -26,6 +27,7 @@ public class LoadingChatState implements Statement_I
 	@Override
 	public void leave()
 		{
+		System.out.println("[LoadingChatState] Leave");
 		splashScreen.dispose();
 
 		}

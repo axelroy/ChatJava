@@ -45,7 +45,7 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 		webCam.setCustomViewSizes(nonStandardResolutions);
 		webCam.setViewSize(WebcamResolution.PAL.getSize());
 
-		dimensionImageYou = new Dimension(1280, 720);
+		dimensionImageYou = WebcamResolution.PAL.getSize();
 		dimensionImageMe = Tools.getScaledDimension(WebcamResolution.PAL.getSize(), AREA_ME);
 
 

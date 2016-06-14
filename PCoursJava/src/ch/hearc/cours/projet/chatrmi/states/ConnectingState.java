@@ -8,18 +8,19 @@ import ch.hearc.cours.projet.chatrmi.tools.JFrameSplashScreen;
 
 public class ConnectingState implements Statement_I
 	{
-	public ConnectingState()
+
+	@Override
+	public void enter()
 		{
+		splashScreen = new JFrameSplashScreen("Try to Connect");
+
 		System.out.println("[ConnectingState] enter");
 		PcChat pcChat = PcChat.getInstance();
 
  		Thread chatThread = new Thread(pcChat);
 		chatThread.start();
 
-		splashScreen = new JFrameSplashScreen("Try to Connect");
-
 		}
-
 
 	@Override
 	public void next(ChatManager chatManager)
@@ -31,6 +32,7 @@ public class ConnectingState implements Statement_I
 	@Override
 	public void leave()
 		{
+		System.out.println("[ConnectingState] leave");
 		splashScreen.dispose();
 
 		}

@@ -13,8 +13,9 @@ public class LoadingChatState implements Statement_I
 	public void enter()
 		{
 		System.out.println("[LoadingChatState] enter");
-		JFrameChat jFrameChat = new JFrameChat();
 		splashScreen = new JFrameSplashScreen("Loading chat");
+		JFrameChat jFrameChat = new JFrameChat();
+
 
 		while(!jFrameChat.isEnabled())
 			{

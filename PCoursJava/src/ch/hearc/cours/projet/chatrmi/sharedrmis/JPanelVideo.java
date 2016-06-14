@@ -48,10 +48,8 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 		dimensionImageYou = WebcamResolution.PAL.getSize();
 		dimensionImageMe = Tools.getScaledDimension(WebcamResolution.PAL.getSize(), AREA_ME);
 
-
 		imageMe = null;
 		imageYou = null;
-
 
 		geometry();
 		control();
@@ -168,7 +166,6 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 				}
 			});
 
-
 		addComponentListener(new ComponentAdapter()
 			{
 
@@ -187,18 +184,24 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 
 	private byte[] imageToBytes(BufferedImage image)
 		{
-		try
+		if (image != null)
 			{
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			ImageIO.write(image, "jpg", baos);
-			return baos.toByteArray();
+			try
+				{
+				ByteArrayOutputStream baos = new ByteArrayOutputStream();
+				ImageIO.write(image, "jpg", baos);
+				return baos.toByteArray();
+				}
+			catch (IOException e)
+				{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+				}
 			}
-		catch (IOException e)
-			{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-			}
+
+		return null;
+
 		}
 
 	private BufferedImage bytesToImage(byte[] bytesImages)
@@ -228,7 +231,6 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 	// Input
 	private Image imageYou;
 	private Image imageMe;
-
 
 	public static final Dimension AREA_ME = new Dimension(300, 300);
 	public final RmiURL rmiUrl;

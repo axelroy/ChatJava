@@ -70,8 +70,11 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 	@Override
 	public void putImage(byte[] image) throws RemoteException
 		{
-		imageYou = bytesToImage(image);
-		//System.out.println("[panelvideo]reception de l'image");
+		if (image != null)
+			{
+			imageYou = bytesToImage(image);
+			}
+
 		}
 
 	public void start()
@@ -154,7 +157,11 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 
 					try
 						{
-						remotePanelVideo.putImage(imageToBytes((BufferedImage)imageMe));
+						if (imageMe != null)
+							{
+							remotePanelVideo.putImage(imageToBytes((BufferedImage)imageMe));
+							}
+
 						}
 					catch (RemoteException e)
 						{

@@ -1,7 +1,6 @@
 
 package ch.hearc.cours.projet.chatrmi.states;
 
-import ch.hearc.cours.projet.chatrmi.ChatManager;
 import ch.hearc.cours.projet.chatrmi.PcChat;
 import ch.hearc.cours.projet.chatrmi.tools.JFrameSplashScreen;
 
@@ -19,13 +18,6 @@ public class ConnectingState implements Statement_I
 
  		Thread chatThread = new Thread(pcChat);
 		chatThread.start();
-
-		}
-
-	@Override
-	public void next(ChatManager chatManager)
-		{
-		chatManager.SetState(new LoadingChatState());
 
 		}
 

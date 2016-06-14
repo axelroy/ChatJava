@@ -14,6 +14,7 @@ import javax.swing.SwingUtilities;
 
 import ch.hearc.cours.projet.chatrmi.ChatManager;
 import ch.hearc.cours.projet.chatrmi.ChatPreferences;
+import ch.hearc.cours.projet.chatrmi.states.ConnectingState;
 
 public class JPanelConnexion extends JPanel
 	{
@@ -93,7 +94,7 @@ public class JPanelConnexion extends JPanel
 				ChatPreferences.save();
 
 				ChatManager chatManager = ChatManager.getInstance();
-				chatManager.nextState();
+				chatManager.SetState(new ConnectingState());
 
 
 				}

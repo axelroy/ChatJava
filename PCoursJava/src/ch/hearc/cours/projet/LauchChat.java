@@ -13,13 +13,14 @@ public class LauchChat
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 
-	// TODO:Peut être ne pas lancer la fenêtre de connexion si les propriétés système sont set
 	public static void main(String[] args)
 		{
 		main();
 		}
 	public static void main()
 		{
+
+		// TODO: replace all sysout and use the logger and creat a file with it. like this we have a debug in production
 		Logger logger = Logger.getLogger(ChatPreferences.loggerName);
 		logger.setLevel(Level.WARNING);
 

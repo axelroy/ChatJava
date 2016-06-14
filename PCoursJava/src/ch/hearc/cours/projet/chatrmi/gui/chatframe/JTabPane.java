@@ -42,16 +42,7 @@ public class JTabPane extends JTabbedPane
 
 	private void control()
 		{
-		/*jPanelRemove.getPanelCross().addMouseListener(new MouseAdapter()
-			{
 
-			@Override
-			public void mouseClicked(MouseEvent e)
-				{
-				remove(0);
-				}
-			});
-			*/
 		}
 
 	private void geometry()

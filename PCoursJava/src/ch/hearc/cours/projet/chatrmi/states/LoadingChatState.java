@@ -34,12 +34,6 @@ public class LoadingChatState implements Statement_I
 
 		}
 
-	@Override
-	public void next(ChatManager chatManager)
-		{
-		chatManager.SetState(new RunningChatState());
-
-		}
 
 	@Override
 	public void leave()

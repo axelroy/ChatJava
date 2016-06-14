@@ -30,10 +30,6 @@ public class ChatManager
 		return INSTANCE;
 		}
 
-	public void nextState()
-		{
-		currentState.next(this);
-		}
 
 	/*------------------------------*\
 	|*				Set				*|

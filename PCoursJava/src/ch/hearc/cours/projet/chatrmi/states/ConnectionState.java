@@ -17,6 +17,7 @@ public class ConnectionState implements Statement_I
 	@Override
 	public void leave()
 		{
+		System.out.println("[ConnectionState] Leave");
 		frameConnexion.dispose();
 		}
 

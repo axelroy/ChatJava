@@ -14,8 +14,8 @@ public class ConnectingState implements Statement_I
 		System.out.println("[ConnectingState] enter");
 		PcChat pcChat = PcChat.getInstance();
 
-//		Thread chatThread = new Thread(pcChat);
-//		chatThread.start();
+ 		Thread chatThread = new Thread(pcChat);
+		chatThread.start();
 
 		// TODO Splashscreen
 		}

@@ -35,12 +35,6 @@ public class PcChat implements Runnable
 			e.printStackTrace();
 			}
 
-		serverSide();
-		clientSide();
-
-		ChatManager chatManager = ChatManager.getInstance();
-		chatManager.nextState();
-
 		}
 
 	/*------------------------------------------------------------------*\
@@ -50,7 +44,11 @@ public class PcChat implements Runnable
 	@Override
 	public void run()
 		{
-		//rien
+		serverSide();
+		clientSide();
+
+		ChatManager chatManager = ChatManager.getInstance();
+		chatManager.nextState();
 		}
 
 	public synchronized static PcChat getInstance()

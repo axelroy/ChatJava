@@ -11,6 +11,8 @@ import ch.hearc.cours.projet.chatrmi.sharedrmis.JTextAreaCustom;
 import ch.hearc.cours.projet.chatrmi.sharedrmis.PanelVideo_I;
 import ch.hearc.cours.projet.chatrmi.sharedrmis.TextArea_I;
 import ch.hearc.cours.projet.chatrmi.states.LoadingChatState;
+import ch.hearc.cours.projet.chatrmi.states.ReconnectionState;
+import ch.hearc.cours.projet.chatrmi.states.RunningChatState;
 
 import com.bilat.tools.reseau.rmi.RmiTools;
 import com.bilat.tools.reseau.rmi.RmiURL;
@@ -48,6 +50,8 @@ public class PcChat implements Runnable
 		serverSide();
 		clientSide();
 
+		jPanelVideo.start();
+
 		ChatManager chatManager = ChatManager.getInstance();
 		System.out.println("[PcChat] change state");
 		chatManager.SetState(new LoadingChatState());
@@ -65,6 +69,8 @@ public class PcChat implements Runnable
 	public void reconnect()
 	{
 	clientSide();
+	ChatManager chatManager = ChatManager.getInstance();
+	chatManager.SetState(new RunningChatState());
 	}
 
 	/*------------------------------*\
@@ -108,6 +114,9 @@ public class PcChat implements Runnable
 			}
 		catch (RemoteException e)
 			{
+			ChatManager chatManager = ChatManager.getInstance();
+			chatManager.SetState(new ReconnectionState());
+
 			System.err.println("[PcChat]: clientSide: erreur de connexion.");
 			// e.printStackTrace();
 			}
@@ -127,7 +136,6 @@ public class PcChat implements Runnable
 		int nbTentatives = 100;
 
 		this.remotePanelVideo = (PanelVideo_I)RmiTools.connectionRemoteObjectBloquant(rmiUrlVideo, delayMs, nbTentatives);
-		jPanelVideo.start();
 		}
 
 

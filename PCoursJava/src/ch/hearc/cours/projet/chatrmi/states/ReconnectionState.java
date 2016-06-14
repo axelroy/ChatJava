@@ -2,6 +2,7 @@
 package ch.hearc.cours.projet.chatrmi.states;
 
 import ch.hearc.cours.projet.chatrmi.ChatManager;
+import ch.hearc.cours.projet.chatrmi.tools.JFrameReconnection;
 
 
 public class ReconnectionState implements Statement_I
@@ -17,7 +18,7 @@ public class ReconnectionState implements Statement_I
 	@Override
 	public void leave()
 		{
-		// TODO close message box
+		jFrameReconnection.dispose();
 
 		}
 
@@ -25,6 +26,8 @@ public class ReconnectionState implements Statement_I
 	public void enter()
 		{
 		System.out.println("[ReconnectionState] enter");
+
+		jFrameReconnection = new JFrameReconnection();
 
 		//TODO luch message box yes no
 
@@ -53,5 +56,7 @@ public class ReconnectionState implements Statement_I
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
+
+	private JFrameReconnection jFrameReconnection;
 	}
 

@@ -9,6 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import ch.hearc.cours.projet.chatrmi.ChatManager;
+import ch.hearc.cours.projet.chatrmi.states.ReconnectingState;
+
 public class JPanelReconnection extends JPanel
 	{
 
@@ -69,7 +72,8 @@ public class JPanelReconnection extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e)
 				{
-				// TODO Auto-generated method stub
+				ChatManager chatManager = ChatManager.getInstance();
+				chatManager.SetState(new ReconnectingState());
 
 				}
 			});
@@ -80,7 +84,7 @@ public class JPanelReconnection extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e)
 				{
-				// TODO Auto-generated method stub
+				System.exit(ABORT);
 
 				}
 			});

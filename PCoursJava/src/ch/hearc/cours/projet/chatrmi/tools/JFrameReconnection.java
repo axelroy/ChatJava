@@ -59,7 +59,8 @@ public class JFrameReconnection extends JFrame
 
 	private void appearance()
 		{
-		setSize(300, 150);
+		setSize(200, 100);
+
 		setLocationRelativeTo(null); // frame centrer
 		setVisible(true); // last!
 		}

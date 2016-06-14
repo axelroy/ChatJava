@@ -10,6 +10,7 @@ public class LoadingChatState implements Statement_I
 
 	public LoadingChatState()
 		{
+		System.out.println("[LoadingChatState] enter");
 		new JFrameChat();
 		// TODO Splashscreen
 		}

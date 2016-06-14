@@ -8,8 +8,6 @@ public class ReconnectionState implements Statement_I
 	{
 	public ReconnectionState()
 		{
-		System.out.println("[ReconnectingState] enter");
-
 		//TODO luch message box yes no
 		}
 

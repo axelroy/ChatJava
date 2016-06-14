@@ -6,6 +6,11 @@ import ch.hearc.cours.projet.chatrmi.ChatManager;
 
 public class RunningChatState implements Statement_I
 	{
+	public RunningChatState()
+		{
+		System.out.println("[RunningChatState] enter");
+
+		}
 
 
 	@Override

@@ -9,6 +9,8 @@ public class ReconnectingState implements Statement_I
 
 	public ReconnectingState()
 		{
+		System.out.println("[ReconnectingState] enter");
+
 		PcChat.getInstance().reconnect();
 		}
 

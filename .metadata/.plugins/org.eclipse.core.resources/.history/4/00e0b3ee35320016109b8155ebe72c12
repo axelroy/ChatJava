@@ -2,28 +2,26 @@
 package ch.hearc.cours.projet.chatrmi.states;
 
 import ch.hearc.cours.projet.chatrmi.ChatManager;
+import ch.hearc.cours.projet.chatrmi.PcChat;
 
-
-public class ReconnectionState implements Statement_I
+public class ReconnectingState implements Statement_I
 	{
-	public ReconnectionState()
-		{
-		System.out.println("[ReconnectingState] enter");
 
-		//TODO luch message box yes no
+	public ReconnectingState()
+		{
+		PcChat.getInstance().reconnect();
 		}
 
 	@Override
 	public void next(ChatManager chatManager)
 		{
-		// TODO Auto-generated method stub
-
+		chatManager.SetState(new RunningChatState());
 		}
 
 	@Override
 	public void leave()
 		{
-		// TODO close message box
+		// TODO Auto-generated method stub
 
 		}
 
@@ -51,4 +49,3 @@ public class ReconnectionState implements Statement_I
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 	}
-

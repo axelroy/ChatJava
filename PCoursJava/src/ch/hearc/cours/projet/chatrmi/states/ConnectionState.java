@@ -9,6 +9,7 @@ public class ConnectionState implements Statement_I
 	{
 	public ConnectionState()
 		{
+		System.out.println("[ConnectionState] enter");
 		frameConnexion = new JFrameConnexion();
 		}
 

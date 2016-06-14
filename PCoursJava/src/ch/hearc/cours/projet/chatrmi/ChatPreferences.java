@@ -3,8 +3,6 @@ package ch.hearc.cours.projet.chatrmi;
 
 import java.util.prefs.Preferences;
 
-import ch.hearc.cours.io.file.persistance.preferrence.JFramePreferrence;
-
 public class ChatPreferences
 	{
 
@@ -79,7 +77,7 @@ public class ChatPreferences
 	/*------------------------------*\
 	|*			  Static			*|
 	\*------------------------------*/
-	private static final Preferences PREFERENCES = Preferences.userNodeForPackage(JFramePreferrence.class);
+	private static final Preferences PREFERENCES = Preferences.userNodeForPackage(ChatManager.class);
 
 	private static String ip;
 	private static int port;
@@ -89,6 +87,8 @@ public class ChatPreferences
 	private static final String DEFAULT_IP = "127.0.0.1";
 	private static final int DEFAULT_PORT = 1099;
 	private static final String DEFAULT_USER = "user";
+
+	public static final String loggerName = "CHATRMI";
 
 
 	}

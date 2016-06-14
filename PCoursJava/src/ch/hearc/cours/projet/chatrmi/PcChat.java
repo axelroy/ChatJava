@@ -5,7 +5,11 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 
-import ch.hearc.cours.projet.gui.chat.JFrameChat;
+import ch.hearc.cours.projet.chatrmi.gui.chatframe.JFrameChat;
+import ch.hearc.cours.projet.chatrmi.sharedrmis.JPanelVideo;
+import ch.hearc.cours.projet.chatrmi.sharedrmis.JTextAreaCustom;
+import ch.hearc.cours.projet.chatrmi.sharedrmis.PanelVideo_I;
+import ch.hearc.cours.projet.chatrmi.sharedrmis.TextArea_I;
 
 import com.bilat.tools.reseau.rmi.RmiTools;
 import com.bilat.tools.reseau.rmi.RmiURL;
@@ -23,13 +27,20 @@ public class PcChat implements Runnable
 		{
 		try
 			{
-			rmiUrl = new RmiURL(Id.idRmi1, InetAddress.getByName(ChatPreferences.getIp()), ChatPreferences.getPort());
-			System.err.println("[PcChat]: création du rmiurl");
+			rmiUrlChat = new RmiURL(IDsRmi.idRmi1, InetAddress.getByName(ChatPreferences.getIp()), ChatPreferences.getPort());
+			rmiUrlVideo = new RmiURL(IDsRmi.idRmi2, InetAddress.getByName(ChatPreferences.getIp()), ChatPreferences.getPort());
 			}
 		catch (UnknownHostException e)
 			{
 			e.printStackTrace();
 			}
+
+		serverSide();
+		clientSide();
+
+		ChatManager chatManager = ChatManager.getInstance();
+		chatManager.nextState();
+
 		}
 
 	/*------------------------------------------------------------------*\
@@ -39,9 +50,7 @@ public class PcChat implements Runnable
 	@Override
 	public void run()
 		{
-		serverSide();
-		clientSide();
-		jFrameChat = new JFrameChat();
+		//rien
 		}
 
 	public synchronized static PcChat getInstance()
@@ -52,6 +61,11 @@ public class PcChat implements Runnable
 			}
 		return INSTANCE;
 		}
+
+	public void reconnect()
+	{
+	clientSide();
+	}
 
 	/*------------------------------*\
 	|*				Get				*|
@@ -68,16 +82,29 @@ public class PcChat implements Runnable
 		return this.jTextAreaCustom;
 		}
 
+	public JPanelVideo getjPanelVideo()
+		{
+		return this.jPanelVideo;
+		}
+
+
+	public PanelVideo_I getRemotePanelVideo()
+		{
+		return this.remotePanelVideo;
+		}
+
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/
 
+
 	private void clientSide()
 		{
 		try
 			{
-			connect();
+			connectChat();
+			connectVideo();
 			}
 		catch (RemoteException e)
 			{
@@ -86,12 +113,21 @@ public class PcChat implements Runnable
 			}
 		}
 
-	private void connect() throws RemoteException
+	private void connectChat() throws RemoteException
 		{
 		int delayMs = 500;
 		int nbTentatives = 100;
-		// adress ip distante
-		this.remoteTextArea = (TextArea_I)RmiTools.connectionRemoteObjectBloquant(rmiUrl, delayMs, nbTentatives);
+
+		this.remoteTextArea = (TextArea_I)RmiTools.connectionRemoteObjectBloquant(rmiUrlChat, delayMs, nbTentatives);
+		}
+
+	private void connectVideo() throws RemoteException
+		{
+		int delayMs = 500;
+		int nbTentatives = 100;
+
+		this.remotePanelVideo = (PanelVideo_I)RmiTools.connectionRemoteObjectBloquant(rmiUrlVideo, delayMs, nbTentatives);
+		jPanelVideo.start();
 		}
 
 
@@ -100,6 +136,7 @@ public class PcChat implements Runnable
 		try
 			{
 			jTextAreaCustom = new JTextAreaCustom();
+			jPanelVideo = new JPanelVideo();
 
 			}
 		catch (RemoteException e)
@@ -113,11 +150,16 @@ public class PcChat implements Runnable
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 	//Tools
-	private RmiURL rmiUrl;
+	private RmiURL rmiUrlChat;
+	private RmiURL rmiUrlVideo;
 
 	//output
 	private TextArea_I remoteTextArea;
 	private JTextAreaCustom jTextAreaCustom;
+
+	private JPanelVideo jPanelVideo;
+	private PanelVideo_I remotePanelVideo;
+
 
 	/*------------------------------*\
 	|*			  Static			*|

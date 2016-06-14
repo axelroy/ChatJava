@@ -1,7 +1,11 @@
 
 package ch.hearc.cours.projet;
 
-import ch.hearc.cours.projet.gui.connexion.JFrameConnexion;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import ch.hearc.cours.projet.chatrmi.ChatManager;
+import ch.hearc.cours.projet.chatrmi.ChatPreferences;
 
 public class LauchChat
 	{
@@ -16,7 +20,12 @@ public class LauchChat
 		}
 	public static void main()
 		{
-		JFrameConnexion frameConnexion = new JFrameConnexion();
+		Logger logger = Logger.getLogger(ChatPreferences.loggerName);
+		logger.setLevel(Level.WARNING);
+
+		ChatManager.getInstance();
+
+
 		}
 
 	/*------------------------------------------------------------------*\

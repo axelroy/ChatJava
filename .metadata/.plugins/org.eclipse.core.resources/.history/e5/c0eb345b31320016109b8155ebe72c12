@@ -1,0 +1,60 @@
+
+package ch.hearc.cours.projet.chatrmi.states;
+
+import java.awt.SplashScreen;
+
+import ch.hearc.cours.projet.chatrmi.ChatManager;
+import ch.hearc.cours.projet.chatrmi.PcChat;
+
+
+public class ConnectingState implements Statement_I
+	{
+	public ConnectingState()
+		{
+		PcChat.getInstance();
+		}
+
+
+	@Override
+	public void next(ChatManager chatManager)
+		{
+		chatManager.SetState(new LoadingChatState());
+
+		}
+
+	@Override
+	public void leave()
+		{
+		// rien
+
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+
+	private PcChat pcChat;
+	private SplashScreen splashScreen;
+
+	}
+

@@ -6,10 +6,10 @@ import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 
 import ch.hearc.cours.projet.chatrmi.gui.chatframe.JFrameChat;
-import ch.hearc.cours.projet.chatrmi.shared.JPanelVideo;
-import ch.hearc.cours.projet.chatrmi.shared.JTextAreaCustom;
-import ch.hearc.cours.projet.chatrmi.shared.PanelVideo_I;
-import ch.hearc.cours.projet.chatrmi.shared.TextArea_I;
+import ch.hearc.cours.projet.chatrmi.sharedrmis.JPanelVideo;
+import ch.hearc.cours.projet.chatrmi.sharedrmis.JTextAreaCustom;
+import ch.hearc.cours.projet.chatrmi.sharedrmis.PanelVideo_I;
+import ch.hearc.cours.projet.chatrmi.sharedrmis.TextArea_I;
 
 import com.bilat.tools.reseau.rmi.RmiTools;
 import com.bilat.tools.reseau.rmi.RmiURL;
@@ -45,7 +45,10 @@ public class PcChat implements Runnable
 		{
 		serverSide();
 		clientSide();
-		jFrameChat = new JFrameChat();
+
+		ChatManager chatManager = ChatManager.getInstance();
+		chatManager.nextState();
+
 		}
 
 	public synchronized static PcChat getInstance()
@@ -56,6 +59,11 @@ public class PcChat implements Runnable
 			}
 		return INSTANCE;
 		}
+
+	public void reconnect()
+	{
+	clientSide();
+	}
 
 	/*------------------------------*\
 	|*				Get				*|

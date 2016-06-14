@@ -1,0 +1,53 @@
+
+package ch.hearc.cours.projet.chatrmi.states;
+
+import ch.hearc.cours.projet.chatrmi.ChatManager;
+
+
+public class LoadingChatState implements Statement_I
+	{
+
+	public LoadingChatState()
+		{
+		// TODO Splashscreen
+		}
+	
+	@Override
+	public void next(ChatManager chatManager)
+		{
+		chatManager.SetState(new RunningChatState());
+
+		}
+
+	@Override
+	public void leave()
+		{
+		// TODO close Splashscreen
+
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+	}
+

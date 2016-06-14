@@ -5,6 +5,8 @@ import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 
+import ch.hearc.cours.projet.chatrmi.ChatManager;
+
 public class JFrameChat extends JFrame
 	{
 
@@ -17,6 +19,10 @@ public class JFrameChat extends JFrame
 		geometry();
 		control();
 		appearance();
+
+		ChatManager chatManager = ChatManager.getInstance();
+		chatManager.nextState();
+
 		}
 
 	/*------------------------------------------------------------------*\

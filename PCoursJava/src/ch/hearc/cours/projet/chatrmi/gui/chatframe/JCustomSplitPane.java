@@ -7,7 +7,7 @@ import java.awt.event.ComponentEvent;
 import javax.swing.JSplitPane;
 
 import ch.hearc.cours.projet.chatrmi.PcChat;
-import ch.hearc.cours.projet.chatrmi.shared.JPanelVideo;
+import ch.hearc.cours.projet.chatrmi.sharedrmis.JPanelVideo;
 
 public class JCustomSplitPane extends JSplitPane
 	{

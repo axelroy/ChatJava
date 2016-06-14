@@ -18,3 +18,8 @@
 1465893124062	Delete element
 1465893206554	Move compilation unit
 1465893452895	Delete elements
+1465893699490	Rename package 'ch.hearc.cours.projet.chatrmi.shared'
+1465894708750	Rename type 'ConnectionInProgressState'
+1465895629585	Rename type 'ConnexionInProgressState'
+1465895649339	Rename type 'ConnextionState'
+1465896895661	Rename method 'onClose'

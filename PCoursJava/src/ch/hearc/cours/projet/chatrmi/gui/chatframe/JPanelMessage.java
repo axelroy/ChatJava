@@ -7,7 +7,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 
 import ch.hearc.cours.projet.chatrmi.PcChat;
-import ch.hearc.cours.projet.chatrmi.shared.JTextAreaCustom;
+import ch.hearc.cours.projet.chatrmi.sharedrmis.JTextAreaCustom;
 
 public class JPanelMessage extends JPanel
 	{

@@ -1,0 +1,53 @@
+
+package ch.hearc.cours.projet.chatrmi;
+
+import ch.hearc.cours.projet.chatrmi.states.ConnectionState;
+import ch.hearc.cours.projet.chatrmi.states.Statement_I;
+
+public class ChatManager
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+	public ChatManager()
+		{
+		currentState = new ConnectionState();
+		//this.frameConnexion = new JFrameConnexion();
+		}
+
+	
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+	public synchronized static PcChat getInstance()
+		{
+		if (INSTANCE == null)
+			{
+			INSTANCE = new PcChat();
+			}
+		return INSTANCE;
+		}
+
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+	//private JFrameConnexion frameConnexion;
+	private Statement_I currentState;
+
+	private static ChatManager INSTANCE;
+	}
+

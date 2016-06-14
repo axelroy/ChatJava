@@ -59,7 +59,7 @@ public class JPanelInput extends JPanel
 
 		if (!stringWithoutSpace.isEmpty())
 			{
-			(pcChat.getjTextAreaCustom()).append(text + "\n");
+			(pcChat.getjTextAreaCustom()).append("<"+ChatPreferences.getUserName()+ "> " + text + "\n");
 			if (!(chatManager.getCurrentState() instanceof ReconnectionState) && !(chatManager.getCurrentState() instanceof ReconnectingState))
 				{
 				try

@@ -3,6 +3,7 @@ package ch.hearc.cours.projet.chatrmi.states;
 
 import ch.hearc.cours.projet.chatrmi.ChatManager;
 import ch.hearc.cours.projet.chatrmi.PcChat;
+import ch.hearc.cours.projet.chatrmi.tools.JFrameSplashScreen;
 
 public class ReconnectingState implements Statement_I
 	{
@@ -15,7 +16,7 @@ public class ReconnectingState implements Statement_I
 	@Override
 	public void leave()
 		{
-		// TODO Auto-generated method stub
+		splashScreen.dispose();
 
 		}
 
@@ -23,8 +24,12 @@ public class ReconnectingState implements Statement_I
 	public void enter()
 		{
 		System.out.println("[ReconnectingState] enter");
+		splashScreen = new JFrameSplashScreen("Reconection attempt");
+
+
 
 		PcChat.getInstance().reconnect();
+
 		}
 
 	/*------------------------------------------------------------------*\
@@ -50,4 +55,6 @@ public class ReconnectingState implements Statement_I
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
+	private JFrameSplashScreen splashScreen;
+
 	}

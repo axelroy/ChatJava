@@ -165,6 +165,7 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 							{
 							if (imageMe != null)
 								{
+								remotePanelVideo = pcChat.getRemotePanelVideo();
 								remotePanelVideo.putImage(imageToBytes((BufferedImage)imageMe));
 								}
 

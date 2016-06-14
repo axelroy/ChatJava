@@ -21,9 +21,12 @@ import javax.swing.JPanel;
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamResolution;
 
+import ch.hearc.cours.projet.chatrmi.ChatManager;
 import ch.hearc.cours.projet.chatrmi.ChatPreferences;
 import ch.hearc.cours.projet.chatrmi.IDsRmi;
 import ch.hearc.cours.projet.chatrmi.PcChat;
+import ch.hearc.cours.projet.chatrmi.states.ReconnectingState;
+import ch.hearc.cours.projet.chatrmi.states.ReconnectionState;
 import ch.hearc.cours.projet.chatrmi.tools.Tools;
 
 import com.bilat.tools.reseau.rmi.RmiTools;
@@ -140,6 +143,7 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 				{
 				PcChat pcChat = PcChat.getInstance();
 				PanelVideo_I remotePanelVideo = pcChat.getRemotePanelVideo();
+				ChatManager chatManager = ChatManager.getInstance();
 
 				while(!Thread.currentThread().isInterrupted())
 					{
@@ -154,18 +158,21 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 						}
 
 					imageMe = webCam.getImage();
-
-					try
+					if (!(chatManager.getCurrentState() instanceof ReconnectionState) && !(chatManager.getCurrentState() instanceof ReconnectingState))
 						{
-						if (imageMe != null)
+
+						try
 							{
-							remotePanelVideo.putImage(imageToBytes((BufferedImage)imageMe));
-							}
+							if (imageMe != null)
+								{
+								remotePanelVideo.putImage(imageToBytes((BufferedImage)imageMe));
+								}
 
-						}
-					catch (RemoteException e)
-						{
-						System.out.println();
+							}
+						catch (RemoteException e)
+							{
+							chatManager.SetState(new ReconnectionState());
+							}
 						}
 
 					JPanelVideo.this.repaint();

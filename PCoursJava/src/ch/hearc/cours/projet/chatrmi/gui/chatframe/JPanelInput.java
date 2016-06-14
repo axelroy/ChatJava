@@ -13,8 +13,11 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import ch.hearc.cours.projet.chatrmi.ChatManager;
 import ch.hearc.cours.projet.chatrmi.ChatPreferences;
 import ch.hearc.cours.projet.chatrmi.PcChat;
+import ch.hearc.cours.projet.chatrmi.states.ReconnectingState;
+import ch.hearc.cours.projet.chatrmi.states.ReconnectionState;
 
 public class JPanelInput extends JPanel
 	{
@@ -50,20 +53,23 @@ public class JPanelInput extends JPanel
 	private void send()
 		{
 		String text = jTextField.getText();
+		ChatManager chatManager = ChatManager.getInstance();
 
 		String stringWithoutSpace = text.replaceAll(" ", "");
 
 		if (!stringWithoutSpace.isEmpty())
 			{
 			(pcChat.getjTextAreaCustom()).append(text + "\n");
-			try
+			if (!(chatManager.getCurrentState() instanceof ReconnectionState) && !(chatManager.getCurrentState() instanceof ReconnectingState))
 				{
-				(pcChat.getRemoteTextArea()).addText(text, ChatPreferences.getUserName());
-				}
-			catch (RemoteException e)
-				{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				try
+					{
+					(pcChat.getRemoteTextArea()).addText(text, ChatPreferences.getUserName());
+					}
+				catch (RemoteException e)
+					{
+					chatManager.SetState(new ReconnectionState());
+					}
 				}
 			}
 		jTextField.setText("");
@@ -94,6 +100,7 @@ public class JPanelInput extends JPanel
 
 		jButton.addActionListener(new ActionListener()
 			{
+
 
 			@Override
 			public void actionPerformed(ActionEvent e)

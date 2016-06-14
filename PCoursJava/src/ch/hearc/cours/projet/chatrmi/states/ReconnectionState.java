@@ -24,7 +24,7 @@ public class ReconnectionState implements Statement_I
 	@Override
 	public void enter()
 		{
-		System.out.println("[ReconnectingState] enter");
+		System.out.println("[ReconnectionState] enter");
 
 		//TODO luch message box yes no
 

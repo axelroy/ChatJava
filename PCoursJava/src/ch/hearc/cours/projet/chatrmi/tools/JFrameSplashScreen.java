@@ -40,13 +40,14 @@ public class JFrameSplashScreen extends JFrame
 		// JComponent : Instanciation
 		jLabel = new JLabel(text);
 
+
 		// Layout : Specification
 			{
 			BorderLayout borderLayout = new BorderLayout();
 			setLayout(borderLayout);
 
-			// borderLayout.setHgap(20);
-			// borderLayout.setVgap(20);
+			borderLayout.setHgap(20);
+			borderLayout.setVgap(20);
 			}
 
 		// JComponent : add

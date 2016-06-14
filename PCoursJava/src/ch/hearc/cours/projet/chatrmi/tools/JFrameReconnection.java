@@ -1,19 +1,20 @@
+
 package ch.hearc.cours.projet.chatrmi.tools;
 
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 
-public class JFrameSplashScreen extends JFrame
+public class JFrameReconnection extends JFrame
 	{
 
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
-	public JFrameSplashScreen(String text)
+	public JFrameReconnection()
 		{
-		geometry(text);
+		geometry();
 		control();
 		appearance();
 		}
@@ -34,27 +35,26 @@ public class JFrameSplashScreen extends JFrame
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/
 
-	private void geometry(String text)
+	private void geometry()
 		{
 		// JComponent : Instanciation
-		JPanelSplashScreen jPanelSplashScreen = new JPanelSplashScreen(text);
-
+		JPanelReconnection jPanelReconnection = new JPanelReconnection();
 		// Layout : Specification
 			{
-			BorderLayout layout = new BorderLayout();
-			setLayout(layout);
+			BorderLayout borderLayout = new BorderLayout();
+			setLayout(borderLayout);
 
-			// flowlayout.setHgap(20);
-			// flowlayout.setVgap(20);
+			// borderLayout.setHgap(20);
+			// borderLayout.setVgap(20);
 			}
+
 		// JComponent : add
-		add(jPanelSplashScreen, BorderLayout.CENTER);
+		add(jPanelReconnection, BorderLayout.CENTER);
 		}
 
 	private void control()
 		{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		//setUndecorated(true);
 		}
 
 	private void appearance()
@@ -64,5 +64,11 @@ public class JFrameSplashScreen extends JFrame
 		setVisible(true); // last!
 		}
 
-	}
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
 
+	// Tools
+
+
+	}

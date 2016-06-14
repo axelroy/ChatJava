@@ -2,16 +2,17 @@ package ch.hearc.cours.projet.chatrmi.tools;
 
 import java.awt.BorderLayout;
 
-import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-public class JFrameSplashScreen extends JFrame
+public class JPanelSplashScreen extends JPanel
 	{
 
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
-	public JFrameSplashScreen(String text)
+	public JPanelSplashScreen(String text)
 		{
 		geometry(text);
 		control();
@@ -37,32 +38,28 @@ public class JFrameSplashScreen extends JFrame
 	private void geometry(String text)
 		{
 		// JComponent : Instanciation
-		JPanelSplashScreen jPanelSplashScreen = new JPanelSplashScreen(text);
+		JLabel jlabel = new JLabel(text);
 
 		// Layout : Specification
 			{
-			BorderLayout layout = new BorderLayout();
-			setLayout(layout);
+			BorderLayout borderlayout = new BorderLayout(40,40);
+			setLayout(borderlayout);
 
 			// flowlayout.setHgap(20);
 			// flowlayout.setVgap(20);
 			}
+
 		// JComponent : add
-		add(jPanelSplashScreen, BorderLayout.CENTER);
+		add(jlabel, BorderLayout.CENTER);
 		}
 
 	private void control()
 		{
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		//setUndecorated(true);
+		// rien
 		}
 
 	private void appearance()
 		{
-		setSize(600, 400);
-		setLocationRelativeTo(null); // frame centrer
-		setVisible(true); // last!
+		// rien
 		}
-
 	}
-

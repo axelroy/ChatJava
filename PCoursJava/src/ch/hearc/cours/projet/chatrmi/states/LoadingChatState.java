@@ -16,7 +16,6 @@ public class LoadingChatState implements Statement_I
 		splashScreen = new JFrameSplashScreen("Loading chat");
 		JFrameChat jFrameChat = new JFrameChat();
 
-
 		while(!jFrameChat.isEnabled())
 			{
 			try
@@ -47,7 +46,6 @@ public class LoadingChatState implements Statement_I
 		{
 		System.out.println("[LoadingChatState] Leave");
 		splashScreen.dispose();
-
 		}
 
 	/*------------------------------------------------------------------*\

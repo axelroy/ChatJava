@@ -23,7 +23,7 @@ public class ConnectionState implements Statement_I
 	@Override
 	public void next(ChatManager chatManager)
 		{
-		chatManager.SetState(new ConnectingState());
+		chatManager.SetState(new LoadingChatState());
 		}
 
 	/*------------------------------------------------------------------*\

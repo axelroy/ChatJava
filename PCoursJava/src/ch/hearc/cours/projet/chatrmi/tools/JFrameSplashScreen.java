@@ -54,7 +54,8 @@ public class JFrameSplashScreen extends JFrame
 	private void control()
 		{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setUndecorated(true);
+		//setUndecorated(true);
+		setResizable(false);
 		}
 
 	private void appearance()

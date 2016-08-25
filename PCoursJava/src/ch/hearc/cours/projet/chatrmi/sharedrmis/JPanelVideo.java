@@ -2,7 +2,6 @@
 package ch.hearc.cours.projet.chatrmi.sharedrmis;
 
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -43,13 +42,13 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 		{
 		webCam = Webcam.getDefault();
 
-		Dimension[] nonStandardResolutions = new Dimension[] { WebcamResolution.PAL.getSize(), WebcamResolution.HD720.getSize(), new Dimension(1920, 1080), new Dimension(1280, 720), };
+		Dimension[] nonStandardResolutions = new Dimension[] { WebcamResolution.UXGA.getSize(), WebcamResolution.HD720.getSize(), new Dimension(1920, 1080), new Dimension(1280, 720), };
 
 		webCam.setCustomViewSizes(nonStandardResolutions);
-		webCam.setViewSize(WebcamResolution.PAL.getSize());
+		webCam.setViewSize(WebcamResolution.UXGA.getSize());
 
-		dimensionImageYou = WebcamResolution.PAL.getSize();
-		dimensionImageMe = Tools.getScaledDimension(WebcamResolution.PAL.getSize(), AREA_ME);
+		dimensionImageYou = WebcamResolution.UXGA.getSize();
+		dimensionImageMe = Tools.getScaledDimension(WebcamResolution.UXGA.getSize(), AREA_ME);
 
 		imageMe = null;
 		imageYou = null;
@@ -117,19 +116,6 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 	private void geometry()
 		{
 
-		// JComponent : Instanciation
-
-		// Layout : Specification
-			{
-			FlowLayout flowlayout = new FlowLayout(FlowLayout.CENTER);
-			setLayout(flowlayout);
-
-			// flowlayout.setHgap(20);
-			// flowlayout.setVgap(20);
-			}
-
-		// JComponent : add
-
 		}
 
 	private void control()
@@ -153,7 +139,6 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 						}
 					catch (InterruptedException e)
 						{
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 						}
 
@@ -199,23 +184,17 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 
 	private byte[] imageToBytes(BufferedImage image)
 		{
-		if (image != null)
+		try
 			{
-			try
-				{
-				ByteArrayOutputStream baos = new ByteArrayOutputStream();
-				ImageIO.write(image, "jpg", baos);
-				return baos.toByteArray();
-				}
-			catch (IOException e)
-				{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return null;
-				}
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ImageIO.write(image, "jpg", baos);
+			return baos.toByteArray();
 			}
-
-		return null;
+		catch (IOException e)
+			{
+			e.printStackTrace();
+			return null;
+			}
 
 		}
 
@@ -227,7 +206,6 @@ public class JPanelVideo extends JPanel implements PanelVideo_I
 			}
 		catch (IOException e)
 			{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 			}
